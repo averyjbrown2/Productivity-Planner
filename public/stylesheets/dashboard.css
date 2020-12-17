@@ -1,0 +1,15 @@
+body {
+    padding-top: 75px;
+}
+
+.weekView {
+    margin: 20px;
+    height: 200px;
+    padding: 5px;
+}
+
+.card {
+    margin: 20px;
+    height: 500px;
+    padding: 5px
+}
