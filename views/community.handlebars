@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Passport Authentication</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+  <link href="/stylesheets/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <h1>Community</h1>
+      <div class="navbar-header">
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Community Feed</h2>
+        <br>  
+        <div>
+            <h4>Lorena just made a new blog post!</h4>
+            <button type="submit" class="btn btn-default">View here</button>
+        </div>
+        <hr>
+        <div>
+            <h4>Lindsay completed her homework goal!</h4>
+        </div>
+        <hr>
+        <div>
+            <h4>Avery just made a new blog post!</h4>
+            <button type="submit" class="btn btn-default">View here</button>
+        </div>
+        <br />
+      </div>
+      <div class="col-md-6">
+        <h2>Blog Posts</h2>
+        <form class="blog-posts">
+          <div class="form-group">
+            <br>
+            <h4>Write a blog post!</h4>
+            <label for="exampleInputTitle">Title</label>
+            <input type="title" class="form-control" id="title-input" placeholder="Title">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputBody">Blog content</label>
+            <textarea type="body" class="form-control" id="body-input" placeholder="Start your blog post here" rows="3"></textarea>
+          </div>
+          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span> <span class="msg"></span>
+          </div>
+          <button type="submit" class="btn btn-default">Post</button>
+        </form>
+        <br />
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/signup.js"></script>
+
+</body>
+
+</html>
