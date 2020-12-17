@@ -1,5 +1,6 @@
 USE planner_db;
 
+-- tables for the community page --
 CREATE TABLE blogs (
 	id INT NOT NULL AUTO_INCREMENT,
 	title VARCHAR(100) NOT NULL,
@@ -19,6 +20,7 @@ CREATE TABLE feed (
     FOREIGN KEY(blog_id) REFERENCES blogs(id)
 );
 
+-- tables for goals page --
 CREATE TABLE goals (
   id int AUTO_INCREMENT NOT NULL PRIMARY KEY,
   name varchar(100) NOT NULL,
@@ -27,6 +29,8 @@ CREATE TABLE goals (
   FOREIGN KEY() REFERENCES 
 );
 
+
+-- tables for planner page --
 CREATE TABLE notes (
 	id INT NOT NULL AUTO_INCREMENT,
 	note VARCHAR(300) NOT NULL,
@@ -34,3 +38,5 @@ CREATE TABLE notes (
     PRIMARY KEY (id),
     FOREIGN KEY(user_id) REFERENCES users(id)
 );
+
+-- tables for dashboard page --
