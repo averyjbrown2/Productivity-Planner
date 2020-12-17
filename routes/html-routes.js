@@ -35,11 +35,11 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/goals.html"));
   });
 
-  app.get("/dayplanner", isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname, "..public/dayplanner.html"));
+  app.get("/planner", isAuthenticated, (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/planner.html"));
   });
 
   app.get("/signup", isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname, "..public/signup.html"));
+    res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
 };
