@@ -5,6 +5,7 @@ form.login {
 
 .weekView {
   height: 200px;
+  background-color: white;
 }
 
 .card {
@@ -13,12 +14,26 @@ form.login {
   padding: 5px
 }
 
+
+
 .sign-up-link {
   text-decoration: none;
   color: black;
 }
 
 body {
-  background-color: 124, 198, 254;
+  background-color: rgb(242, 242, 154);
 }
 
+section {
+  background-color: rgb(145, 242, 145);
+}
+
+.shadow {
+  background-color: rgb(145, 242, 145);
+}
+
+.container-fluid {
+  background-color:
+  ;
+}

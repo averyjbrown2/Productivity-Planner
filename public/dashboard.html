@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <!--Begin navbar-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><h2>My Dashboard</h2></a>
@@ -41,9 +42,12 @@
                 </div>
             </div>
         </div>
-    </nav><br><br><br>
+    </nav>
+    <!--End navbar-->
+    <br><br><br>
+    <!--Begin daily calendar boxes-->
     <div class="container-fluid mt-3" id="weeklyCalendarView">
-        <div class="row mx-2 justify-content-center">
+        <div class="row mx-2 justify-content-center shadow p-3 m-3 bg-white rounded"">
             <div class="col-sm border border-dark border-2 weekView" id="day1">Day 1</div>
             <div class="col-sm border border-dark border-2 weekView" id="day2">Day 2</div>
             <div class="col-sm border border-dark border-2 weekView" id="day3">Day 3</div>
@@ -53,10 +57,14 @@
             <div class="col-sm border border-dark border-2 weekView" id="">Day 7</div>
         </div>
     </div>
+    <!--End daily calendar boxes-->
+<section>
+    <!--Begin lower half of page: today's quick view, goals, community quick view-->
     <div class="container-fluid mt-4" id="quickView">
         <div class="row justify-content-center">
-            <div class="col" id="todayQuickView">
-                <div class="card">
+            <!--Begin first column: today's quick view-->
+            <div class="col " id="todayQuickView">
+                <div class="card shadow p-3 m-3 bg-white rounded">
                     <div class="card-header">
                         Today Quick View
                     </div>
@@ -73,8 +81,10 @@
                     </div>
                 </div>
             </div>
+            <!--End first column: today's quick view-->
+            <!--Begin second column: goals quick view-->
             <div class="col" id="todayQuickView">
-                <div class="card">
+                <div class="card shadow p-3 m-3 bg-white rounded"">
                     <div class="card-header">
                         Goals Quick View
                     </div>
@@ -91,8 +101,10 @@
                     </div>
                 </div>
             </div>
+            <!--End second column: goals quick view-->
+            <!--Begin third/final column: community quick view-->
             <div class="col" id="todayQuickView">
-                <div class="card">
+                <div class="card shadow p-3 m-3 bg-white rounded">
                     <div class="card-header">
                         Community Quick View
                     </div>
@@ -109,8 +121,12 @@
                     </div>
                 </div>
             </div>
+            <!--End third/final column: community quick view-->
         </div>
+        <!--End of row-->
     </div>
+    <!--End of container-->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/js/dashboard.js"></script>
 </body>
