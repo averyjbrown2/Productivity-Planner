@@ -2,19 +2,39 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
-.body {
-    background-color: red;
-}
+
 .weekView {
   height: 200px;
-  margin: 100px;
+  margin: 2px;
   padding: 10px;
+  background-color: #f2e9e4;
 }
+.dash-qv-container {
+  background-color: #c9ada7;
+}
+
+.dash-nav {
+  background-color: #;
+}
+
+body {
+  text-decoration-color:;
+}
+
 .card {
   margin: 20px;
   height: 500px;
   padding: 5px
 }
+
+.dash-container {
+  background-color: #9a8c98
+}
+
+
+
+ 
+
 .navbar-light .navbar-brand {
   font-family: 'BioRhyme', serif;
   color: black;
