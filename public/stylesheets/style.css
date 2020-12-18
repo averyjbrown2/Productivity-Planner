@@ -14,8 +14,6 @@ form.login {
   padding: 5px
 }
 
-
-
 .sign-up-link {
   text-decoration: none;
   color: black;
@@ -27,13 +25,4 @@ body {
 
 section {
   background-color: rgb(145, 242, 145);
-}
-
-.shadow {
-  background-color: rgb(145, 242, 145);
-}
-
-.container-fluid {
-  background-color:
-  ;
 }

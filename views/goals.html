@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link rel="stylesheet" href="../stylesheets/style.css">
     
 </head>
 
@@ -45,30 +45,31 @@
     </nav>
     <!--End navbar-->
 <br><br><br><br>
+
 <!--Begin goals container-->
+<section>
     <div class="container">
-        <div class="row">
-            <!--Add goal input box-->
-            <div class="card shadow p-3 m-3 bg-white rounded">
-                <div class="col-md-12">
-                    <h2 class="mb-3">Add a Goal:</h2>
-                    <input type="title" class="form-control" placeholder="Add goal here" id="goal-input" placeholder="Title">
-                    <button type="button" class="btn btn-dark mt-3">Submit</button>
+        <section>
+            <div class="row">
+        <!--Begin the add goal input box-->
+                    <div class="col-md-12 shadow p-3 m-3 bg-white rounded">
+                        <h2 class="mb-3">Add a Goal:</h2>
+                        <input type="title" class="form-control" placeholder="Add goal here" id="goal-input" placeholder="Title">
+                        <button type="button" class="btn btn-dark mt-3">Submit</button>
+                        </div>
                     </div>
-                    <br>
                 </div>
-            </div>
-        </div>
+        </section>
     <!--Begin first column: my goals-->
         <div class="row">
             <div class="col shadow p-3 m-3 bg-white rounded">
                 <h2 class="m-3">My Goals</h2><br>
-                    <div class="card shadow p-3 m-3 bg-white rounded">
+                    <div class="shadow p-3 m-3 bg-white rounded">
                         <h4>Make a new blog post.</h4>
                         <p><button type="button" class="btn btn-dark edit-btn">Edit</button>
                         <button type="button" class="btn btn-dark delete-btn">Delete</button>
                     </p></div>
-                    <div class="card shadow p-3 m-3 bg-white rounded">
+                    <div class="shadow p-3 m-3 bg-white rounded">
                         <h4>Wash dishes.</h4>
                         <p><button type="button" class="btn btn-dark edit-btn">Edit</button>
                             <button type="button" class="btn btn-dark delete-btn">Delete</button>
@@ -78,12 +79,12 @@
     <!--Begin second column: goals progress-->
             <div class="col shadow p-3 m-3 bg-white rounded">
                     <h2 class="m-3">Goals Progress</h2><br>
-                        <div class="card shadow p-3 m-3 bg-white rounded">
+                        <div class="shadow p-3 m-3 bg-white rounded">
                             <h4>Make a new blog post.</h4>
                             <p><button type="button" class="btn btn-dark edit-btn">Edit</button>
                                 <button type="button" class="btn btn-dark delete-btn">Delete</button>
                             </p></div>
-                        <div class="card shadow p-3 m-3 bg-white rounded">
+                        <div class="shadow p-3 m-3 bg-white rounded">
                             <h4>Make a new blog post.</h4>
                             <p><button type="button" class="btn btn-dark edit-btn">Edit</button>
                                 <button type="button" class="btn btn-dark delete-btn">Delete</button>
@@ -94,7 +95,7 @@
     <!--Begin third column: achievements-->
             <div class="col shadow p-3 m-3 bg-white rounded">
                 <h2 class="m-3">Achievements</h2><br>
-                    <div class="card shadow p-3 m-3 bg-white rounded">
+                    <div class="shadow p-3 m-3 bg-white rounded">
                         <h4>Knit sweater.</h4>
                         <p><button type="button" class="btn btn-dark edit-btn">Edit</button>
                             <button type="button" class="btn btn-dark delete-btn">Delete</button>
@@ -105,3 +106,9 @@
     <!--End of row-->
     </div>
 <!--End of container-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/js/dashboard.js"></script>
+
+</body>
+</html>
