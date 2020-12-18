@@ -1,14 +1,14 @@
-$(document).ready(function () {
+$(document).ready(() => {
   // Getting a reference to the input field where user adds a new todo
-  var newNoteInput = $("#new-note");
+  const newNoteInput = $("#new-note");
   $("#note-save-btn").on("click", saveNote);
- 
+
   //Run these functions when the planner page loads
   getNote();
 
   // This function grabs notes from the database
   function getNote() {
-    $.get("/api/notes", function(data) {
+    $.get("/api/notes", data => {
       note = data;
       renderNotes();
     });
@@ -25,19 +25,18 @@ $(document).ready(function () {
 
   function saveNote() {
     //grab notes table
-    $.get("/api/notes", function(data) {
+    $.get("/api/notes", data => {
       note = data;
 
       //goes to the first row of the table
-      let savedNote = note[0];
+      const savedNote = note[0];
 
       //changes the value of the exisitng not text to the value of the textarea
       savedNote.text = newNoteInput.val();
       //runs update note function
       updateNote(savedNote);
     });
-  };
-
+  }
 
   function updateNote(note) {
     //uses put method the take in saved not and runs route using saved note
@@ -47,8 +46,7 @@ $(document).ready(function () {
       data: note
     }).then(getNote);
   }
-  
- 
+
   // function insertNote(event) {
   //   event.preventDefault();
   //   console.log(newNoteInput.val());
@@ -57,5 +55,4 @@ $(document).ready(function () {
   //   };
   //   $.post("/api/notes", note);
   // }
-
 });
