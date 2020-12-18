@@ -50,4 +50,41 @@ module.exports = function(app) {
       });
     }
   });
+
+
+  // GET route for getting all of the notes
+  app.get("/api/notes", function(req, res) {
+    // findAll returns all entries for a table when used with no options
+    db.Note.findAll({}).then(function(dbTodo) {
+      res.json(dbTodo);
+    });
+  });
+
+  // Update already existing Notes
+  app.put("/api/notes", function(req, res) {
+    db.Note.update({
+      text: req.body.text,
+    }, {
+        where: {
+          id: req.body.id
+        }
+       }
+    ).then(function(dbNote) {
+      res.json(dbNote);
+    });
+  });
+
+  //Add a new note to the notes table
+  app.post("/api/notes", function(req, res) {
+    console.log(req.body);
+    // create takes an argument of an object describing the item we want to
+    // insert into our table. In this case we just we pass in an object with a text
+    // and complete property (req.body)
+    db.Note.create({
+      text: req.body.text,
+    }).then(function(dbNote) {
+      res.json(dbNote);
+    });
+  });
+
 };
