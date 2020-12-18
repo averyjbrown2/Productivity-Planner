@@ -2,19 +2,19 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
-
+.body {
+    background-color: red;
+}
 .weekView {
   height: 200px;
   margin: 100px;
   padding: 10px;
 }
-
 .card {
   margin: 20px;
   height: 500px;
   padding: 5px
 }
-
 .navbar-light .navbar-brand {
   font-family: 'BioRhyme', serif;
   color: black;
@@ -49,7 +49,6 @@ height:80px;
 .timer-row{
   height:290px;
 }
-
 .schedule-container{
  display: flex;
 }
@@ -62,7 +61,6 @@ height:80px;
  display: flex;
  border-color: black;
 }
-
 .modal-close-btn{
 border-color: black;
 }
