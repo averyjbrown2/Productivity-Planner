@@ -1,5 +1,7 @@
 USE planner_db;
 
+
+
 -- tables for the community page --
 CREATE TABLE blogs (
 	id INT NOT NULL AUTO_INCREMENT,
