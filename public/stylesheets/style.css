@@ -7,9 +7,13 @@ form.login {
 }
 .weekView {
   height: 200px;
-  margin: 100px;
+  width: 200px;
+  margin: 10px;
   padding: 10px;
+  background-color: #F2E9E4;
+  background-image: url("/images/roseGoldSquare.png");
 }
+
 .card {
   margin: 20px;
   height: 500px;
