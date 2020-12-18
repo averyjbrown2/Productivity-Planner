@@ -1,7 +1,9 @@
+const luxon = require("luxon");
+const { DateTime } = luxon;
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
-module.exports = function(app) {
+module.exports = function (app) {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
@@ -21,7 +23,17 @@ module.exports = function(app) {
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/dashboard", isAuthenticated, (req, res) => {
-    res.render("dashboard");
+    const dt = DateTime.local();
+    const days = [];
+    for (let i = 0; i < 7; i++) {
+      const date = dt.plus({ days: i });
+      const data = {
+        view: date.toLocaleString(DateTime.DATE_FULL),
+        value: date.toFormat("yyyyLLdd")
+      };
+      days.push(data);
+    }
+    res.render("dashboard", { days });
   });
 
   app.get("/community", isAuthenticated, (req, res) => {
@@ -32,8 +44,8 @@ module.exports = function(app) {
     res.render("goals");
   });
 
-  app.get("/planner", isAuthenticated, (req, res) => {
-    res.render("planner");
+  app.get("/planner/:date", isAuthenticated, (req, res) => {
+    res.render("planner", { date: req.params.date });
   });
 
   app.get("/signup", isAuthenticated, (req, res) => {
