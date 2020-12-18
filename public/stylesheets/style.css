@@ -23,6 +23,14 @@ body {
   background-color: rgb(242, 242, 154);
 }
 
+.blog-posts,
+.feed-posts {
+  background-color: white;
+}
+
+
+
+.community-container,
 section {
   background-color: rgb(145, 242, 145);
 }
