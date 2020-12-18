@@ -13,5 +13,9 @@ form.login {
   padding: 5px
 }
 
+.sign-up-link {
+  text-decoration: none;
+  color: black;
+}
 
 
