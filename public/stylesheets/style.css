@@ -4,7 +4,7 @@ form.login {
 }
 
 .weekView {
-  height: 400px;
+  height: 200px;
 }
 
 .card {
@@ -12,4 +12,6 @@ form.login {
   height: 500px;
   padding: 5px
 }
+
+
 
