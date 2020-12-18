@@ -25,7 +25,7 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/planner">Login</a>
+              <a class="nav-link" aria-current="page" href="/login">Login</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/signup">Sign Up</a>
@@ -48,7 +48,7 @@
     <div class="row">
       <div class="col-3"></div>
       <div class="col-6">
-        <form class="login">
+        <form class="signup">
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input type="email" class="form-control shadow p-3 m-3 bg-white rounded" id="email-input" placeholder="Email">
@@ -57,19 +57,19 @@
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control shadow p-3 m-3 bg-white rounded" id="password-input" placeholder="Password">
           </div>
+            <div class="row">
+              <div class="col-12 text-center">
+                <button type="submit" class="btn btn-dark" id="sign-up-btn">Sign Up</button>
+              </div>
+            </div>
         </form>
       </div>
       <div class="col-3"></div>
     </div>
     <br />
-    <div class="row">
-      <div class="col-12 text-center">
-        <button type="submit" class="btn btn-dark" id="sign-up-btn">Sign Up</button>
-      </div>
-      </div>
     <div class="row mt-3">
       <div class="col-12">
-        <p class="text-center">Or login <a href="/">here</a></p>
+        <p class="text-center">Or login <a href="/login">here</a></p>
       </div>
     </div>
   </div>
