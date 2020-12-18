@@ -2,10 +2,17 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+.body {
+    background-color: red;
+}
 
 .weekView {
-  height: 400px;
+  height: 200px;
+  margin: 100px;
+  padding: 10px;
 }
+
+
 
 .card {
   margin: 20px;
