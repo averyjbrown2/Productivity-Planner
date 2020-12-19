@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./stylesheets/style.css">
-</head>
-<body>
+
     <!--Begin navbar-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -47,15 +34,9 @@
     <br><br><br>
     <h2 class="m-4 text-center">Dashboard</h2>
     <!--Begin daily calendar boxes-->
-        {{!-- <div class="container-fluid mt-3" id="weeklyCalendarView">
-        <div class="row mx-2 justify-content-center shadow p-3 m-3 bg-white rounded"">
-        <button class="col-sm border border-dark border-2 weekView" id="day1">Day 1</button>
-        </div>
-        </div> --}}
-    <div class="container-fluid mt-3" id="weeklyCalendarView">
-        <div class="row mx-2 justify-content-center shadow p-3 m-3 bg-white rounded"">
+        <div class="row mx-2 justify-content-center shadow p-3 m-3 bg-white rounded">
             {{#each days}}
-            <a class="col-sm border border-dark border-2 weekView" data-id="{{value}}" href="/planner/{{value}}">
+            <a class="col-sm shadow p-3 m-3 rounded weekViewLinks" data-id="{{value}}" href="/planner/{{value}}">
             {{view}}
             </a>
             {{/each}}
@@ -86,9 +67,10 @@
                 </div>
             </div>
             <!--End first column: today's quick view-->
+
             <!--Begin second column: goals quick view-->
             <div class="col" id="todayQuickView">
-                <div class="card shadow p-3 m-3 bg-white rounded"">
+                <div class="card shadow p-3 m-3 bg-white rounded">
                     <div class="card-header">
                         Goals Quick View
                     </div>
@@ -132,5 +114,3 @@
     <!--End of container-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/js/dashboard.js"></script>
-</body>
-</html>

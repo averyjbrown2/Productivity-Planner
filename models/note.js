@@ -9,12 +9,12 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   });
-  Note.associate = function(models) {
-    Note.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // Note.associate = function(models) {
+  //   Note.belongsTo(models.User, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
   return Note;
 };
