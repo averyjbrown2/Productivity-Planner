@@ -7,18 +7,25 @@ form.login {
   height: 200px;
   margin: 2px;
   padding: 10px;
-  background-color: #f2e9e4;
+  background-color: white;
+  
 }
 .dash-qv-container {
   background-color: #c9ada7;
+  
+}
+
+.dash-title {
+  font-style: italic;
+  font-family: 'BioRhyme', serif;
 }
 
 .dash-nav {
-  background-color: #;
+  background-color: #f2e9e4;
 }
 
 body {
-  text-decoration-color:;
+  text-decoration-color:
 }
 
 .card {
@@ -28,8 +35,10 @@ body {
 }
 
 .dash-container {
-  background-color: #9a8c98
+  background-color: #9a8c98;
+  background-image: url();
 }
+
 
 
 
