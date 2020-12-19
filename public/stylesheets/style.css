@@ -2,16 +2,33 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
 .body {
     background-color: red;
 }
-.weekView {
+.weekViewLinks {
   height: 200px;
   width: 200px;
   margin: 10px;
   padding: 10px;
-  background-color: #F2E9E4;
-  background-image: url("/images/roseGoldSquare.png");
+  background-color: #F2E9E4; 
+  /* #efd9d1 */
+  background-image: url("/images/goldCircle.png");
+  background-repeat: no-repeat;
+  background-size: 180px 190px;
+  background-position: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black; text-decoration: none;
+  font-size: 35px;
+  font-family: 'Norican', cursive;
+}
+
+.weekViewLinks:hover {
+  text-decoration: none;
+  color: grey;
 }
 
 .card {
@@ -32,9 +49,7 @@ label, button {
 .col-container{
   margin: 20px;
 }
-/* section{
-  margin: 10px;
-} */
+
 .schedule-col{
   height:600px;
 }
@@ -73,6 +88,9 @@ border-color: black;
   width: 100%;
   outline: none;
   border: none;
+  font-family: 'Dancing Script', cursive;
+  font-size: 25px;
+  font-weight: bold;
 }
 .note-textarea {
   resize: none;
