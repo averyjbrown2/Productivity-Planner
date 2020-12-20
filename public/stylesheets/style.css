@@ -49,6 +49,9 @@ footer
       font-family: 'Josefin Sans', sans-serif;
     }
 
+.container-fluid .color-class .border-top {
+  border-top: gold;
+}
 
 .weekView {
   height: 200px;
