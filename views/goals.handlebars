@@ -1,18 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Goals</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
-
 <body>
     <div class="background-pic">
         <!--Begin navbar-->
@@ -66,6 +51,7 @@
                     </div>
                 </div>
         </div>
+<<<<<<< HEAD
         </section>
         <!--Begin first column: my goals-->
         <div class="row">
@@ -123,3 +109,79 @@
 </body>
 
 </html>
+=======
+    </nav>
+    <!--End navbar-->
+    <br><br><br>
+    <h2 class="m-4 text-center">Goals</h2>
+    <!--Begin goals container-->
+    <div class="container">
+            <div class="row">
+                <!--Begin the add goal input box-->
+                <div class="col-md-12 shadow p-3 m-3 rounded">
+                    <h3 class="mb-3">Add a Goal:</h3>
+                    <input type="title" class="form-control" placeholder="Add goal here" id="goalTitle"
+                        placeholder="Title">
+                    <button type="button" class="btn btn-dark mt-3" id="addGoal">Submit</button>
+                </div>
+            </div>
+    </div>
+    <!--Begin first column: my goals-->
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col shadow p-3 m-3 rounded">
+            <h3 class="m-3">My Goals</h3><br>
+            {{#each goals}}
+            {{#if added}}
+            <div class="shadow p-3 m-3 rounded">
+                <p>{{title}}</p>
+                <p><button type="button" class="btn btn-dark edit-btn" id="inProgressBtn">Start</button>
+                    <button type="button" class="btn btn-dark delete-btn" id="deleteGoal">Delete</button>
+                </p>
+            </div>
+            {{/if}}
+            {{else}}
+            <h4>Add a Goal to start Tracking!</h4>
+            {{/each}}
+        </div>
+        <!--End second column: goals in progress-->
+        <div class="col shadow p-3 m-3 rounded">
+            <h3 class="m-3">In Progress</h3><br>
+            {{#each goals}}
+            {{#if inProgress}}
+            <div class="shadow p-3 m-3 rounded">
+                <p>{{title}}</p>
+                <p><button type="button" class="btn btn-dark edit-btn" id="completeBtn">Completed</button>
+                    <button type="button" class="btn btn-dark delete-btn">Delete</button>
+                </p>
+            {{/if}}
+            {{else}}
+            <h4>Start a Goal to track progress!</h4>
+            {{/each}}
+            </div>
+        </div>
+        <!--Begin third column: achievements-->
+        <div class="col shadow p-3 m-3 rounded">
+            <h3 class="m-3">Achievements</h3><br>
+            {{#each goals}}
+            {{#if completed}}
+            <div class="shadow p-3 m-3 rounded">
+                <p>{{title}}</p>
+                <p><button type="button" class="btn btn-dark edit-btn" id="inProgressBtn">In Progress</button>
+                    <button type="button" class="btn btn-dark delete-btn">Delete</button>
+                </p>
+            </div>
+            {{/if}}
+            {{else}}
+            <h4>Complete a Goal to add Achievements!</h4>
+            {{/each}}
+
+        </div>
+        <!--End of third column: achievements-->
+    </div>
+    <!--End of row-->
+    </div>
+    <!--End of container-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/goals.js"></script>
+>>>>>>> 810916c920997eca7ecbaeb10f8f15f594923f0b

@@ -31,8 +31,10 @@ module.exports = function(sequelize, DataTypes) {
       null
     );
   });
-  // User.associate = function(models) {
-  //   User.hasMany(models.Note);
-  // };
+  User.associate = function(models) {
+    User.hasMany(models.Note);
+    User.hasMany(models.Goal);
+    User.hasMany(models.Post);
+  };
   return User;
 };
