@@ -3,16 +3,61 @@ form.login {
   margin-top: 50px;
 }
 
+html, body {
+  height: 100%;
+  background-color: #f2e9e4;
+}
+
+.btn .btn-dark .active .dash-btn{
+  background-color: #9a8c98;
+  color:black;
+}
+
+footer
+{
+  /* background-image: linear-gradient(#f2e9e4, #f2e9e4 100%); */
+  background-color:#f2e9e4;
+ 
+  height: 38%;
+  position: fixed;
+  bottom:0%;
+}
+
+#quickView {
+  background-color: #f2e9e4; 
+  position: absolute;
+}
+
+.list-border {
+  border-style: solid;
+  border-color: #9a8c98;
+  border-width: thick;
+  background-color: #f2e9e4;
+}
+
+.background-pic {
+    /* background-image: url(https://www.teahub.io/photos/full/209-2094316_office-desk-background-office-desk-background-hd.jpg); */ 
+    background-image: url(https://www.executive-baskets.com/wp-content/uploads/2016/03/Fotolia_99922774_Subscription_Monthly_M.jpg);
+    height: 62%;
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      /* font-family: 'Dancing Script', cursive; */
+      /* font-family: 'Marck Script', cursive; */
+      font-family: 'Josefin Sans', sans-serif;
+    }
+
+
 .weekView {
   height: 200px;
   margin: 2px;
   padding: 10px;
-  background-color: white;
-  
 }
+
 .dash-qv-container {
   background-color: #c9ada7;
-  
 }
 
 .dash-title {
@@ -21,11 +66,33 @@ form.login {
 }
 
 .dash-nav {
-  background-color: #f2e9e4;
+  background-color: #9a8c98;
+  font-family: 'Dancing Script', cursive;
 }
 
-body {
-  text-decoration-color:
+.weekViewLinks {
+  height: 200px;
+  width: 200px;
+  margin: 10px;
+  padding: 10px;
+  background-color: #F2E9E4; 
+  /* #efd9d1 */
+  background-image: url("/images/goldCircle.png");
+  background-repeat: no-repeat;
+  background-size: 180px 190px;
+  background-position: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black; text-decoration: none;
+  font-size: 35px;
+  font-family: 'Norican', cursive;
+}
+
+.weekViewLinks:hover {
+  text-decoration: none;
+  color: grey;
 }
 
 .card {
@@ -45,21 +112,20 @@ body {
  
 
 .navbar-light .navbar-brand {
-  font-family: 'BioRhyme', serif;
+  font-family: 'Dancing Script', cursive;
   color: black;
   border-bottom: 2px solid black;
 }
 .navbar-light .navbar-nav .nav-link, p,
 label, button {
-  font-family: 'Space Mono', monospace; 
+  /* font-family: 'Dancing Script', cursive;  */
+  font-family: 'Marck Script', cursive;
   color: black;
 }
 .col-container{
   margin: 20px;
 }
-/* section{
-  margin: 10px;
-} */
+
 .schedule-col{
   height:600px;
 }
@@ -98,6 +164,9 @@ border-color: black;
   width: 100%;
   outline: none;
   border: none;
+  font-family: 'Dancing Script', cursive;
+  font-size: 25px;
+  font-weight: bold;
 }
 .note-textarea {
   resize: none;

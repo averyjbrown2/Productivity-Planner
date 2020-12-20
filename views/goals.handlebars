@@ -14,107 +14,111 @@
 </head>
 
 <body>
-    <!--Begin navbar-->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <h1>Productivity Planner</h1>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="d-flex">
-                <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/planner">Day Planner</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/dashboard">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/goals">Goals</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/community">Community</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/logout">Logout</a>
-                        </li>
-                    </ul>
+    <div class="background-pic">
+        <!--Begin navbar-->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid dash-nav">
+                <a class="navbar-brand" href="#">
+                    <h1>Productivity Planner</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="d-flex">
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="/planner">Day Planner</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/dashboard">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/goals">Goals</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/community">Community</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+        </nav>
+        <!--End navbar-->
+        <br><br><br>
+        <h1 class="m-4 text-center">Goals</h1>
+        <h2 class="text-center m-2">Welcome to your Productivity Planner!</h2> 
+    
+        <!--Begin goals container-->
+        <div class="container">
+            <section>
+                <div class="row">
+                    <!--Begin the add goal input box-->
+                    <div class="col-md-12 shadow p-3 m-3 rounded list-border">
+                        <h3 class="mb-3">Add a Goal:</h3>
+                        <input type="title" class="form-control" placeholder="Add goal here" id="goal-input"
+                            placeholder="Title">
+                        <button type="button" class="btn btn-dark mt-3 active">Submit</button>
+                    </div>
+                </div>
         </div>
-    </nav>
-    <!--End navbar-->
-    <br><br><br>
-    <h2 class="m-4 text-center">Goals</h2>
-    <!--Begin goals container-->
-    <div class="container">
-        <section>
-            <div class="row">
-                <!--Begin the add goal input box-->
-                <div class="col-md-12 shadow p-3 m-3 rounded">
-                    <h3 class="mb-3">Add a Goal:</h3>
-                    <input type="title" class="form-control" placeholder="Add goal here" id="goal-input"
-                        placeholder="Title">
-                    <button type="button" class="btn btn-dark mt-3">Submit</button>
+        </section>
+        <!--Begin first column: my goals-->
+        <div class="row">
+            <div class="col shadow p-3 m-3 rounded list-border">
+                <h3 class="m-3">My Goals</h3><br>
+                <div class="shadow p-3 m-3 rounded bg-light">
+                    <h4>Make a new blog post.</h4>
+                    <p><button type="button" class="btn btn-dark edit-btn active">Edit</button>
+                        <button type="button" class="btn btn-dark delete-btn active">Delete</button>
+                    </p>
+                </div>
+                <div class="shadow p-3 m-3 bg-light rounded">
+                    <h4>Wash dishes.</h4>
+                    <p><button type="button" class="btn btn-dark edit-btn active">Edit</button>
+                        <button type="button" class="btn btn-dark delete-btn active">Delete</button>
+                    </p>
                 </div>
             </div>
-    </div>
-    </section>
-    <!--Begin first column: my goals-->
-    <div class="row">
-        <div class="col shadow p-3 m-3 rounded">
-            <h3 class="m-3">My Goals</h3><br>
-            <div class="shadow p-3 m-3 rounded">
-                <h4>Make a new blog post.</h4>
-                <p><button type="button" class="btn btn-dark edit-btn">Edit</button>
-                    <button type="button" class="btn btn-dark delete-btn">Delete</button>
-                </p>
+            <!--End first column: my goals-->
+            <!--Begin second column: goals progress-->
+            <div class="col shadow p-3 m-3 rounded list-border">
+                <h3 class="m-3">Goals Progress</h3><br>
+                <div class="shadow p-3 m-3 rounded bg-light">
+                    <h4>Make a new blog post.</h4>
+                    <p><button type="button" class="btn btn-dark edit-btn active">Edit</button>
+                        <button type="button" class="btn btn-dark delete-btn active">Delete</button>
+                    </p>
+                </div>
+                <div class="shadow p-3 m-3 rounded bg-light">
+                    <h4>Make a new blog post.</h4>
+                    <p><button type="button" class="btn btn-dark edit-btn active">Edit</button>
+                        <button type="button" class="btn btn-dark delete-btn active">Delete</button>
+                    </p>
+                </div>
             </div>
-            <div class="shadow p-3 m-3 rounded">
-                <h4>Wash dishes.</h4>
-                <p><button type="button" class="btn btn-dark edit-btn">Edit</button>
-                    <button type="button" class="btn btn-dark delete-btn">Delete</button>
-                </p>
+            <!--End second column: goals progress-->
+            <!--Begin third column: achievements-->
+            <div class="col shadow p-3 m-3 rounded list-border">
+                <h3 class="m-3">Achievements</h3><br>
+                <div class="shadow p-3 m-3 rounded bg-light">
+                    <h4>Knit sweater.</h4>
+                    <p><button type="button" class="btn btn-dark edit-btn active">Edit</button>
+                        <button type="button" class="btn btn-dark delete-btn active">Delete</button>
+                    </p>
+                </div>
             </div>
+            <!--End of third column: achievements-->
         </div>
-        <!--End first column: my goals-->
-        <!--Begin second column: goals progress-->
-        <div class="col shadow p-3 m-3 rounded">
-            <h3 class="m-3">Goals Progress</h3><br>
-            <div class="shadow p-3 m-3 rounded">
-                <h4>Make a new blog post.</h4>
-                <p><button type="button" class="btn btn-dark edit-btn">Edit</button>
-                    <button type="button" class="btn btn-dark delete-btn">Delete</button>
-                </p>
-            </div>
-            <div class="shadow p-3 m-3 rounded">
-                <h4>Make a new blog post.</h4>
-                <p><button type="button" class="btn btn-dark edit-btn">Edit</button>
-                    <button type="button" class="btn btn-dark delete-btn">Delete</button>
-                </p>
-            </div>
+        <!--End of row-->
         </div>
-        <!--End second column: goals progress-->
-        <!--Begin third column: achievements-->
-        <div class="col shadow p-3 m-3 rounded">
-            <h3 class="m-3">Achievements</h3><br>
-            <div class="shadow p-3 m-3 rounded">
-                <h4>Knit sweater.</h4>
-                <p><button type="button" class="btn btn-dark edit-btn">Edit</button>
-                    <button type="button" class="btn btn-dark delete-btn">Delete</button>
-                </p>
-            </div>
         </div>
-        <!--End of third column: achievements-->
-    </div>
-    <!--End of row-->
-    </div>
-    <!--End of container-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!--End of container-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/js/goals.js"></script>
 </body>
 
