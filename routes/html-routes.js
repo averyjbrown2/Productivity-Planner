@@ -1,5 +1,6 @@
 const luxon = require("luxon");
 const { DateTime } = luxon;
+const db = require("../models");
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
@@ -35,13 +36,19 @@ module.exports = function(app) {
     }
     res.render("dashboard", { days });
   });
-
+  //render community page with posts from all users
   app.get("/community", isAuthenticated, (req, res) => {
-    res.render("community");
+    db.Post.findAll({ limit: 10 }).then(posts => {
+      res.render("community", { posts });
+    });
   });
-
+  //render goals page with goals based on UserId of logged in user
   app.get("/goals", isAuthenticated, (req, res) => {
-    res.render("goals");
+    db.Goal.findAll({
+      where: { UserId: req.user.id }
+    }).then(goals => {
+      res.render("goals", { goals });
+    });
   });
 
   app.get("/planner/:date", isAuthenticated, (req, res) => {
