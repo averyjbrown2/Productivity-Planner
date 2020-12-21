@@ -2,6 +2,7 @@ $(document).ready(() => {
   // Getting a reference to the input field where user adds a new todo
   const newNoteInput = $("#new-note");
   // Added reference to the input where a new schedule item is entered
+  const newScheduleInput = $("#newScheduleItem");
 
   $("#note-save-btn").on("click", saveNote);
 
