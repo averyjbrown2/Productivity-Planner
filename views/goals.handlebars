@@ -57,11 +57,12 @@
     <div class="row">
         <div class="col shadow p-3 m-3 rounded list-border">
             <h3 class="m-3">My Goals</h3><br>
+            <div class="col">
             {{#each goals}}
             {{else}}
             <h4>Add a Goal to start Tracking!</h4>
             {{#if added}}
-            <div class="shadow p-3 m-3 rounded list-border">
+            <div class="shadow p-3 m-3 rounded bg-white list-border">
                 <p>{{title}}</p>
                 <p><button type="button" class="btn btn-dark prog-btn active" data-id="{{this.id}}" id="startBtn">Start</button>
                     <button type="button" class="btn btn-dark delete-btn active" data-id="{{this.id}}">Delete</button>
@@ -69,6 +70,7 @@
             </div>
             {{/if}}
             {{/each}}
+        </div>
         </div>
         <!--End second column: goals in progress-->
         <div class="col shadow p-3 m-3 rounded list-border">

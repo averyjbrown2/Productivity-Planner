@@ -31,21 +31,25 @@
 </nav>
 <!--End navbar-->
 <br><br><br>
-<h2 class="m-4 text-center">Community</h2>
+<h2 class="m-4 text-center header-color">Community</h2>
 <!--Begin main container-->
-  <div class="container community-container mx-auto mt-4 shadow p-3 m-3 rounded">
+  <div class="container community-container mx-auto mt-4 header-color list-border">
     <div class="row mx-2 p-3">
       <!--Begin feed column-->
       <div class="col-md-6">
         <h3>Feed</h3><hr>
         {{#each posts}}
-        <h4>{{ title }}</h4>
-        <h6>From: {{ author }}</h6>
-        <p>{{ text }}</p>
-        {{else}}
-        <h4>No posts yet!</h4>
-        {{/each}}
+        <div class="row shadow p-3 m-3 rounded bg-white">
+          
+          <h4>{{ title }}</h4>
+          <h6>From: {{ author }}</h6>
+          <p class="header-color">{{ text }}</p>
+          {{else}}
+          <h4>No posts yet!</h4>
+          {{/each}}
       </div>
+      </div>
+      </div> <br>
       <!--End feed column-->
       <!--Begin blog posts column-->
       <div class="col-md-6">
