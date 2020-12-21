@@ -77,8 +77,9 @@
                     
                     <div class="card-body">
                         <ul class="list-group list-group flush">
-                            <li class="list-group-item">Goal 1</li>
-                            
+                            {{#each goals}}
+                            <li class="list-group-item">{{title}}</li>
+                            {{/each}}
                         </ul>
                     </div>
                     <div class="card-footer">
@@ -95,8 +96,9 @@
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group flush">
-                            <li class="list-group-item">Recent Post 1</li>
-                            
+                            {{#each posts}}
+                            <li class="list-group-item">{{title}}</li>
+                            {{/each}}
                         </ul>
                     </div>
                     <div class="card-footer">

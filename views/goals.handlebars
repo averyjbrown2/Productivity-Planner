@@ -62,9 +62,10 @@
                 <p><button type="button" class="btn btn-dark prog-btn active" data-id="{{this.id}}" id="startBtn">Start</button> <button type="button" class="btn btn-dark delete-btn active" data-id="{{this.id}}">Delete</button>
                 </p>
             </div>
-            {{/if}}
-            {{else}}
+             {{else}}
             <h4>Add a Goal to start Tracking!</h4>
+            {{/if}}
+           
             {{/each}}
         </div>
         </div>
@@ -78,9 +79,9 @@
                 <p><button type="button" class="btn btn-dark edit-btn active" data-id="{{this.id}}" id="completeBtn">Completed</button>
                     <button type="button" class="btn btn-dark delete-btn active" data-id="{{this.id}}">Delete</button>
                 </p>
-            {{/if}}
             {{else}}
             <h4>Start a Goal to track progress!</h4>
+            {{/if}}
             {{/each}}
             </div>
         </div>
@@ -95,9 +96,10 @@
                     <button type="button" class="btn btn-dark delete-btn active" data-id="{{this.id}}">Delete</button>
                 </p>
             </div>
-            {{/if}}
-            {{else}}
+             {{else}}
             <h4>Complete a Goal to add Achievements!</h4>
+            {{/if}}
+           
             {{/each}}
 
         </div>
