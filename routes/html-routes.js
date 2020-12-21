@@ -25,6 +25,8 @@ module.exports = function (app) {
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
+  //render dashboard with goals, posts, etc...
+  //Anthony did the base of this. Showed how to await pull from all APIs at once and catch error
   app.get("/dashboard", isAuthenticated, async (req, res) => {
     const dt = DateTime.local();
     const days = [];
@@ -37,7 +39,7 @@ module.exports = function (app) {
       days.push(data);
     }
     try {
-      const goals = await db.Goal.findAll({});
+      const goals = await db.Goal.findAll({ where: { UserId: req.user.id } });
       const posts = await db.Post.findAll({});
       res.render("dashboard", { days, goals, posts });
     } catch (err) {
