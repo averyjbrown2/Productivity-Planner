@@ -181,4 +181,30 @@ $(document).ready(() => {
     console.log(schedule);
     $.post("/api/schedules", schedule);
   }
+
+  const objectives = [
+    { className: "checkbox1", checked: null, goal: null },
+    { className: "checkbox2", checked: null, goal: null },
+    { className: "checkbox3", checked: null, goal: null },
+    { className: "checkbox4", checked: null, goal: null }
+  ];
+
+  const goals = [
+    { className: "checkbox2", checked: "checked", goal: "Workout Today!" },
+    { className: "checkbox4", checked: "checked", goal: "Finish Project!" }
+  ];
+
+  const newGoals = objectives.map(objectives => {
+    for (let i = 0; i < goals.length; i++) {
+      if (objectives.className === goals[i].className) {
+        return goals[i];
+      }
+    }
+    return objectives;
+  });
+  console.log(newGoals);
 });
+
+module.exports = {
+  newGoals: newGoals
+};

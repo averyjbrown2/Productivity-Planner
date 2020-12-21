@@ -3,9 +3,85 @@ form.login {
   margin-top: 50px;
 }
 
-.body {
-    background-color: red;
+.header-color {
+  color: black;
+  text-decoration: none;
+  font-family: 'Josefin Sans', sans-serif;
+    
 }
+
+
+
+html, body {
+  height: 100%;
+  background-color: #f2e9e4;
+}
+
+.btn .btn-dark .active .dash-btn{
+  background-color: #9a8c98;
+  color:black;
+}
+
+footer
+{
+  /* background-image: linear-gradient(#f2e9e4, #f2e9e4 100%); */
+  background-color:#f2e9e4;
+ 
+  height: 38%;
+  position: fixed;
+  bottom:0%;
+}
+
+#quickView {
+  background-color: #f2e9e4; 
+  position: absolute;
+}
+
+.list-border {
+  border-style: solid;
+  border-color: #9a8c98;
+  border-width: thick;
+  background-color: #f2e9e4;
+}
+
+.background-pic {
+    /* background-image: url(https://www.teahub.io/photos/full/209-2094316_office-desk-background-office-desk-background-hd.jpg); */ 
+    background-image: url(https://www.executive-baskets.com/wp-content/uploads/2016/03/Fotolia_99922774_Subscription_Monthly_M.jpg);
+    height: 62%;
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      /* font-family: 'Dancing Script', cursive; */
+      /* font-family: 'Marck Script', cursive; */
+      font-family: 'Josefin Sans', sans-serif;
+    }
+
+.container-fluid .color-class .border-top {
+  border-top: gold;
+}
+
+.weekView {
+  height: 200px;
+  margin: 2px;
+  padding: 10px;
+}
+
+.dash-qv-container {
+  background-color: #c9ada7;
+}
+
+.dash-title {
+  font-style: italic;
+  font-family: 'BioRhyme', serif;
+}
+
+.dash-nav {
+  background-color: #9a8c98;
+  font-family: 'Dancing Script', cursive;
+}
+
 .weekViewLinks {
   height: 200px;
   width: 200px;
@@ -36,14 +112,26 @@ form.login {
   height: 500px;
   padding: 5px
 }
+
+.dash-container {
+  background-color: #9a8c98;
+  background-image: url();
+}
+
+
+
+
+ 
+
 .navbar-light .navbar-brand {
-  font-family: 'BioRhyme', serif;
+  font-family: 'Dancing Script', cursive;
   color: black;
   border-bottom: 2px solid black;
 }
 .navbar-light .navbar-nav .nav-link, p,
 label, button {
-  font-family: 'Space Mono', monospace; 
+  /* font-family: 'Dancing Script', cursive;  */
+  font-family: 'Marck Script', cursive;
   color: black;
 }
 .col-container{
@@ -78,6 +166,7 @@ height:80px;
   background-color: white;
   margin: 10px;
  display: flex;
+ align-items: center;
  border-color: black;
 }
 .modal-close-btn{
@@ -97,3 +186,27 @@ border-color: black;
   height: calc(90% - 63px);
   padding-top: 15px;
 }
+
+.goals-checkboxes {
+  margin-top: .8rem;
+}
+
+.goals-input-textarea {
+ 
+  outline: none;
+  border-top: none;
+  border-left:none;
+  border-right:none;
+  border-color:#9A8C98;
+  
+}
+
+.goals-input-textarea:focus {
+  box-shadow: 0 0 10px #efd9d1; 
+  border-color:#d8ac9c;
+}
+
+.goals-input-textarea::placeholder {
+ color:rgb(187, 187, 187);
+}
+
