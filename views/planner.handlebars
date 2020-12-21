@@ -141,27 +141,17 @@
                 <div class="container">
                     <div class="row goals-row">
                         <h3>Goals: </h3><br>
-                        {{#each newGoals}}
-                         <div class="container">
-                            <input class="form-check-input goals-checkboxes" type="checkbox" value="" {{checked}} >
-                            <input type="text" class="form-control goals-input-textarea" placeholder="Write a new goal!">
+                         <form class="container" id="newGoal">
+                            <input type="text" class="form-control goals-input-textarea" id="goalText" placeholder="Write a new goal!">
+                            <button type="submit">submit</button>
+                        </form>
+                        {{#each goals}}
+                        <div class="container flexCenter">
+                            
+                            <input class="form-check-input goals-checkboxes" type="checkbox" {{#if complete}}  checked {{/if}} data-completed={{complete}} data-id={{id}} >
+                            {{text}}
                         </div>
                         {{/each}}
-                        {{!-- <div class="container">
-                            <input class="form-check-input goals-checkboxes" type="checkbox" value="" >
-                            <input type="text" class="form-control goals-input-textarea" placeholder="Write a new goal!">
-                        </div>
-                        <div class="container">
-                            <input class="form-check-input goals-checkboxes" type="checkbox" value="" >
-                            <input type="text" class="form-control goals-input-textarea" placeholder="Write a new goal!">
-                        </div>
-                        <div class="container">
-                            <input class="form-check-input goals-checkboxes" type="checkbox" value="" >
-                            <input type="text" class="form-control goals-input-textarea" placeholder="Write a new goal!">
-                        </div>
-                        <div class="container">
-                            <button class="btn" id="goals-save-btn">Save</button>
-                        </div> --}}
                     </div>
                 </div>
                 </div>
