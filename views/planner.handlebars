@@ -39,13 +39,15 @@
                 <div class="shadow p-3 m-3 rounded">
                     <h3>Schedule</h3>
                     <div>
+                        {{#each morningTime}}
                         <div class="schedule-container">
-                            <p> 7 AM ______________</p>
+                            <p>{{time}}{{period}}</p>
                             <button type="button" class="btn modal-btn view-modal" data-toggle="modal"
-                                data-target="#exampleModalCenter">
+                                data-target="#exampleModalCenter" data-id="{{time}}">
                                 View plans!
                             </button>
                         </div>
+                        {{/each}}
                         <div class="schedule-container">
                             <p>8 AM ______________</p>
                             <button type="button" class="btn modal-btn view-modal" data-toggle="modal"
