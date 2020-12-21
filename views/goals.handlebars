@@ -14,9 +14,6 @@
                     <div class="collapse navbar-collapse" id="navbarText">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="/planner">Day Planner</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="/dashboard">Dashboard</a>
                             </li>
                             <li class="nav-item">
@@ -59,16 +56,15 @@
             <h3 class="m-3">My Goals</h3><br>
             <div class="col">
             {{#each goals}}
-            {{else}}
-            <h4>Add a Goal to start Tracking!</h4>
             {{#if added}}
             <div class="shadow p-3 m-3 rounded bg-white list-border">
-                <p>{{title}}</p>
-                <p><button type="button" class="btn btn-dark prog-btn active" data-id="{{this.id}}" id="startBtn">Start</button>
-                    <button type="button" class="btn btn-dark delete-btn active" data-id="{{this.id}}">Delete</button>
+                <h4>{{title}}</h4>
+                <p><button type="button" class="btn btn-dark prog-btn active" data-id="{{this.id}}" id="startBtn">Start</button> <button type="button" class="btn btn-dark delete-btn active" data-id="{{this.id}}">Delete</button>
                 </p>
             </div>
             {{/if}}
+            {{else}}
+            <h4>Add a Goal to start Tracking!</h4>
             {{/each}}
         </div>
         </div>

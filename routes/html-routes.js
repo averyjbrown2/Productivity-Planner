@@ -47,6 +47,7 @@ module.exports = function(app) {
     db.Goal.findAll({
       where: { UserId: req.user.id }
     }).then(goals => {
+      console.log(goals);
       res.render("goals", { goals });
     });
   });
