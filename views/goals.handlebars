@@ -63,7 +63,7 @@
                     <h3 class="mb-3">Add a Goal:</h3>
                     <input type="title" class="form-control" placeholder="Add goal here" id="goalTitle"
                         placeholder="Title">
-                    <button type="button" class="btn btn-dark mt-3" id="addGoal">Submit</button>
+                    <button type="button" class="btn btn-dark mt-3 active" id="addGoal">Submit</button>
                 </div>
             </div>
     </div>
@@ -76,8 +76,8 @@
             {{#if added}}
             <div class="shadow p-3 m-3 rounded">
                 <p>{{title}}</p>
-                <p><button type="button" class="btn btn-dark edit-btn" id="inProgressBtn">Start</button>
-                    <button type="button" class="btn btn-dark delete-btn" id="deleteGoal">Delete</button>
+                <p><button type="button" class="btn btn-dark edit-btn active" id="inProgressBtn">Start</button>
+                    <button type="button" class="btn btn-dark delete-btn active" id="deleteGoal">Delete</button>
                 </p>
             </div>
             {{/if}}
@@ -92,8 +92,8 @@
             {{#if inProgress}}
             <div class="shadow p-3 m-3 rounded">
                 <p>{{title}}</p>
-                <p><button type="button" class="btn btn-dark edit-btn" id="completeBtn">Completed</button>
-                    <button type="button" class="btn btn-dark delete-btn">Delete</button>
+                <p><button type="button" class="btn btn-dark edit-btn active" id="completeBtn">Completed</button>
+                    <button type="button" class="btn btn-dark delete-btn active">Delete</button>
                 </p>
             {{/if}}
             {{else}}
@@ -108,8 +108,8 @@
             {{#if completed}}
             <div class="shadow p-3 m-3 rounded">
                 <p>{{title}}</p>
-                <p><button type="button" class="btn btn-dark edit-btn" id="inProgressBtn">In Progress</button>
-                    <button type="button" class="btn btn-dark delete-btn">Delete</button>
+                <p><button type="button" class="btn btn-dark edit-btn active" id="inProgressBtn">In Progress</button>
+                    <button type="button" class="btn btn-dark delete-btn active">Delete</button>
                 </p>
             </div>
             {{/if}}
