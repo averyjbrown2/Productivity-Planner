@@ -83,7 +83,8 @@ module.exports = function(app) {
     // and complete property (req.body)
     db.Note.create({
       date: req.body.date,
-      text: req.body.text
+      text: req.body.text,
+      UserId: req.user.id
     }).then(dbNote => {
       res.json(dbNote);
     });
