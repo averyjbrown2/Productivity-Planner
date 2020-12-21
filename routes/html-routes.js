@@ -67,7 +67,7 @@ module.exports = function(app) {
       };
       morningTime.push(morn);
     }
-    for (let i = 1; i < 9; i++) {
+    for (let i = 1; i < 10; i++) {
       const time = i;
       const after = {
         time: time,
