@@ -2,6 +2,7 @@ $(document).ready(() => {
   // Getting a reference to the input field where user adds a new todo
   const newNoteInput = $("#new-note");
   // Added reference to the input where a new schedule item is entered
+  const newScheduleTitle = $("#new-schedule-title");
   const newScheduleInput = $("#new-schedule-item");
 
   //Run function when user clicks to save new note
@@ -115,11 +116,13 @@ $(document).ready(() => {
   //show the schedules on the page
   function renderSchedule() {
     newScheduleInput.empty();
+    newScheduleTitle.empty()
     console.log("rendering the schedule");
     for (let i = 0; i < schedule.length; i++) {
       if (dateID === schedule[i].date) {
         console.log(schedule[i]);
         newNoteInput.val(schedule[i].text);
+        newScheduleTitle.val(schedule[i].title);
         console.log(schedule);
       }
     }
@@ -144,7 +147,8 @@ $(document).ready(() => {
               " Text - " +
               savedScheduleItem.Id
           );
-          savedNote.text = newScheduleInput.val();
+          savedScheduleItem.text = newScheduleInput.val();
+          savedScheduleItem.title = newScheduleTitle.val();
           console.log(
             "Updated Schedule!: Date - " +
               savedScheduleItem.dateId +
@@ -176,6 +180,7 @@ $(document).ready(() => {
     const schedule = {
       date: dateID,
       time: 7,
+      title: newScheduleTitle.val().trim(),
       text: newScheduleInput.val().trim()
     };
     console.log(schedule);

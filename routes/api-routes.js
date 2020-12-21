@@ -123,6 +123,7 @@ module.exports = function(app) {
     db.Schedule.create({
       date: req.body.date,
       time: req.body.time,
+      title: req.body.title,
       text: req.body.text,
       UserId: req.user.id
     }).then(dbSchedule => {
