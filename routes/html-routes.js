@@ -37,6 +37,7 @@ module.exports = function(app) {
       days.push(data);
     }
     res.render("dashboard", { days });
+
   });
   //render community page with posts from all users
   app.get("/community", isAuthenticated, (req, res) => {
@@ -57,25 +58,17 @@ module.exports = function(app) {
     const date = {
       date: req.params.date
     };
-    const morningTime = [];
-    const afternoonTime = [];
-    for (let i = 7; i < 13; i++) {
-      const time = i;
-      const morn = {
-        time: time,
-        period: "AM"
+
+    const timeBlock = [];
+
+    for (let i = 7; i < 20; i++) {
+      const times = {
+        time: DateTime.fromISO(req.params.date).plus({hours: i}).toFormat("ha")
       };
-      morningTime.push(morn);
+      timeBlock.push(times);
     }
-    for (let i = 1; i < 10; i++) {
-      const time = i;
-      const after = {
-        time: time,
-        period: "PM"
-      };
-      afternoonTime.push(after);
-    }
-    res.render("planner", { date, morningTime, afternoonTime });
+
+    res.render("planner", { date, timeBlock, formattedDate: DateTime.fromISO(req.params.date).toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY) });
   });
 
   app.get("/signup", isAuthenticated, (req, res) => {

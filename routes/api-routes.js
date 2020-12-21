@@ -124,11 +124,18 @@ module.exports = function(app) {
     db.Schedule.create({
       date: req.body.date,
       time: req.body.time,
-      title: req.body.title,
       text: req.body.text,
       UserId: req.user.id
     }).then(dbSchedule => {
       res.json(dbSchedule);
+    });
+  });
+
+  // GET route for getting all of the goals information
+  app.get("/api/goal", (req, res) => {
+    // findAll returns all entries for a table when used with no options
+    db.Objective.findAll({}).then(dbGoal => {
+      res.json(dbGoal);
     });
   });
 };

@@ -2,13 +2,12 @@ $(document).ready(() => {
   // Getting a reference to the input field where user adds a new todo
   const newNoteInput = $("#new-note");
   // Added reference to the input where a new schedule item is entered
-  const newScheduleTitle = $("#new-schedule-title");
-  const newScheduleInput = $("#new-schedule-item");
+  const newScheduleInput = $(".new-schedule-item");
 
   //Run function when user clicks to save new note
   $("#note-save-btn").on("click", saveNote);
   //Run function when user clicks to save new schedule item
-  $("#new-schedule-save-btn").on("click", saveSchedule);
+  $("#save-schedule").on("click", saveSchedule);
 
   const dateID = window.location.href.substring(
     window.location.href.lastIndexOf("/") + 1
@@ -116,13 +115,11 @@ $(document).ready(() => {
   //show the schedules on the page
   function renderSchedule() {
     newScheduleInput.empty();
-    newScheduleTitle.empty();
     console.log("rendering the schedule");
     for (let i = 0; i < schedule.length; i++) {
       if (dateID === schedule[i].date) {
         console.log(schedule[i]);
         newScheduleInput.val(schedule[i].text);
-        newScheduleTitle.val(schedule[i].title);
         console.log(schedule);
       }
     }
@@ -148,7 +145,6 @@ $(document).ready(() => {
               savedScheduleItem.Id
           );
           savedScheduleItem.text = newScheduleInput.val();
-          savedScheduleItem.title = newScheduleTitle.val();
           console.log(
             "Updated Schedule!: Date - " +
               savedScheduleItem.dateId +
@@ -180,7 +176,6 @@ $(document).ready(() => {
     const schedule = {
       date: dateID,
       time: 7,
-      title: newScheduleTitle.val().trim(),
       text: newScheduleInput.val().trim()
     };
     console.log(schedule);
