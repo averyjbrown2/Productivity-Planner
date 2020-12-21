@@ -51,16 +51,16 @@ $(document).ready(() => {
 
           console.log(
             "FOUND A MATCH!!: Date - " +
-            savedNote.dateId +
-            " Text - " +
-            savedNote.Id
+              savedNote.dateId +
+              " Text - " +
+              savedNote.Id
           );
           savedNote.text = newNoteInput.val();
           console.log(
             "Updated Note!: Date - " +
-            savedNote.dateId +
-            " Text - " +
-            savedNote.Id
+              savedNote.dateId +
+              " Text - " +
+              savedNote.Id
           );
           //runs update note function
           updateNote(savedNote);
@@ -91,7 +91,29 @@ $(document).ready(() => {
     console.log(note);
     $.post("/api/notes", note);
   }
-
+  $("#newGoal").on("submit", function(event) {
+    event.preventDefault();
+    const newGoalText = {
+      text: $("#goalText")
+        .val()
+        .trim(),
+      date: dateID,
+      complete: false
+    };
+    $.post("/api/goal", newGoalText).then(() => location.reload());
+  });
+  $(".goals-checkboxes").click(function() {
+    const goalId = $(this).attr("data-id");
+    const newState = $(this).attr("data-completed") === "true" ? false : true;
+    $(this).attr("data-completed", newState);
+    const goalState = { state: newState };
+    console.log(goalId, goalState);
+    $.ajax({
+      method: "PUT",
+      url: "/api/goal/" + goalId,
+      data: goalState
+    }).then(results => console.log(results));
+  });
   const objectives = [
     { className: "checkbox1", checked: null, goal: null },
     { className: "checkbox2", checked: null, goal: null },
