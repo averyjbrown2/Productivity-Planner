@@ -7,10 +7,7 @@ form.login {
   color: #22223B;
   text-decoration: none;
   font-family: 'Josefin Sans', sans-serif;
-    
 }
-
-
 
 html, body {
   height: 100%;
@@ -118,11 +115,6 @@ footer
   background-image: url();
 }
 
-
-
-
- 
-
 .navbar-light .navbar-brand {
   font-family: 'Dancing Script', cursive;
   color: #22223B;
@@ -186,7 +178,6 @@ border-color: #22223B;
   height: calc(90% - 63px);
   padding-top: 15px;
 }
-
 
 .navbar {
   background-color: #9a8c98 !important;
