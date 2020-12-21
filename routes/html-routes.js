@@ -54,6 +54,9 @@ module.exports = function(app) {
   });
 
   app.get("/planner/:date", isAuthenticated, (req, res) => {
+    const date = {
+      date: req.params.date
+    };
     const morningTime = [];
     const afternoonTime = [];
     for (let i = 7; i < 12; i++) {
@@ -72,7 +75,7 @@ module.exports = function(app) {
       };
       afternoonTime.push(after);
     }
-    res.render("planner", { date: req.params.date });
+    res.render("planner", { date, morningTime, afternoonTime });
   });
 
   app.get("/signup", isAuthenticated, (req, res) => {

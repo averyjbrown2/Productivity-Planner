@@ -48,13 +48,15 @@
                             </button>
                         </div>
                         {{/each}}
+                        {{#each afternoonTime}}
                         <div class="schedule-container">
-                            <p>8 AM ______________</p>
+                            <p>{{time}}{{period}}</p>
                             <button type="button" class="btn modal-btn view-modal" data-toggle="modal"
-                                data-target="#exampleModalCenter">
+                                data-target="#exampleModalCenter" data-id="{{time}}">
                                 View plans!
                             </button>
                         </div>
+                        {{/each}}
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
                             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -77,55 +79,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="schedule-container">
-                            <p>9 AM ______________</p>
-                            <button type="button" class="btn modal-btn view-modal" data-toggle="modal"
-                                data-target="#exampleModalCenter">
-                                View plans!
-                            </button>
-                        </div>
-                        <div class="schedule-container">
-                            <p>10 AM _____________</p>
-                            <button type="button" class="btn modal-btn view-modal" data-toggle="modal"
-                                data-target="#exampleModalCenter">
-                                View plans!
-                            </button>
-                        </div>
-                        <div class="schedule-container">
-                            <p>11 AM _____________</p>
-                            <button type="button" class="btn modal-btn view-modal" data-toggle="modal"
-                                data-target="#exampleModalCenter">
-                                View plans!
-                            </button>
-                        </div>
-                        <div class="schedule-container">
-                            <p>12 AM _____________</p>
-                            <button type="button" class="btn modal-btn view-modal" data-toggle="modal"
-                                data-target="#exampleModalCenter">
-                                View plans!
-                            </button>
-                        </div>
-                        <div class="schedule-container">
-                            <p>1 PM ______________</p>
-                            <button type="button" class="btn modal-btn view-modal" data-toggle="modal"
-                                data-target="#exampleModalCenter">
-                                View plans!
-                            </button>
-                        </div>
-                        <div class="schedule-container">
-                            <p>2 PM ______________</p>
-                            <button type="button" class="btn modal-btn view-modal" data-toggle="modal"
-                                data-target="#exampleModalCenter">
-                                View plans!
-                            </button>
-                        </div>
-                        <div class="schedule-container">
-                            <p>3 PM ______________</p>
-                            <button type="button" class="btn modal-btn view-modal" data-toggle="modal"
-                                data-target="#exampleModalCenter">
-                                View plans!
-                            </button>
                         </div>
                     </div>
                 </div>
