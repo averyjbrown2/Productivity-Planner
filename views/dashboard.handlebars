@@ -13,9 +13,6 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/planner">Day Planner</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link active" href="/dashboard">Dashboard</a>
                         </li>
                         <li class="nav-item">
@@ -80,8 +77,9 @@
                     
                     <div class="card-body">
                         <ul class="list-group list-group flush">
-                            <li class="list-group-item">Goal 1</li>
-                            
+                            {{#each goals}}
+                            <li class="list-group-item">{{title}}</li>
+                            {{/each}}
                         </ul>
                     </div>
                     <div class="card-footer">
@@ -98,8 +96,10 @@
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group flush">
-                            <li class="list-group-item">Recent Post 1</li>
-                            
+                            {{#each posts}}
+                            <li class="list-group-item">{{title}}<br>By: {{author}}<br>{{text}}
+                               </li>
+                            {{/each}}
                         </ul>
                     </div>
                     <div class="card-footer">
