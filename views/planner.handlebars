@@ -12,9 +12,6 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/planner">Day Planner</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="/dashboard">Dashboard</a>
                     </li>
                     <li class="nav-item">
@@ -136,7 +133,6 @@
                     <h3 id="todays-date"></h3>
 
                 </div>
-
             </div>
             <div class="shadow p-3 m-3 bg-white rounded">
                 <div class="row goals-row">
@@ -146,41 +142,6 @@
             <div class="shadow p-3 m-3 bg-white rounded">
                 <div class="row water-row">
                     <h3>Water: </h3>
-
-                <div class="shadow p-3 m-3 bg-white rounded">
-                <div class="container">
-                    <div class="row goals-row">
-                        <h3>Goals: </h3><br>
-                        {{#each newGoals}}
-                         <div class="container">
-                            <input class="form-check-input goals-checkboxes" type="checkbox" value="" {{checked}} >
-                            <input type="text" class="form-control goals-input-textarea" placeholder="Write a new goal!">
-                        </div>
-                        {{/each}}
-                        {{!-- <div class="container">
-                            <input class="form-check-input goals-checkboxes" type="checkbox" value="" >
-                            <input type="text" class="form-control goals-input-textarea" placeholder="Write a new goal!">
-                        </div>
-                        <div class="container">
-                            <input class="form-check-input goals-checkboxes" type="checkbox" value="" >
-                            <input type="text" class="form-control goals-input-textarea" placeholder="Write a new goal!">
-                        </div>
-                        <div class="container">
-                            <input class="form-check-input goals-checkboxes" type="checkbox" value="" >
-                            <input type="text" class="form-control goals-input-textarea" placeholder="Write a new goal!">
-                        </div>
-                        <div class="container">
-                            <button class="btn" id="goals-save-btn">Save</button>
-                        </div> --}}
-                    </div>
-                </div>
-                </div>
-                {{!-- Water Block --}}
-                <div class="shadow p-3 m-3 bg-white rounded">
-                    <div class="row water-row">
-                        <h3>Water: </h3>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -197,49 +158,46 @@
             <div class="shadow p-3 m-3 bg-white rounded">
                 <div class="row timer-row">
                     <h3>Productivity Timer: </h3>
-                    <div class="container">
-                        <div class="timer">
-                            <div id="hand"></div>
-                            <div class="controls">
-                                <label class="switch" for="status-toggle">
-                                    <input checked type="checkbox" name="status-toggle" id="status-toggle"
-                                        class="productivity" />
-                                    <span class="slider"></span>
-                                </label>
-                                <div class="status">Status: <span id="status">Working</span></div>
-                                <div class="time">
-                                    <div id="minutes">25</div>
-                                    <div id="seconds">00</div>
-                                </div>
-                                <div class="buttons">
-                                    <button aria-label="play" id="play">
-                                        <i class="fas fa-play fa-xs" aria-hidden="true"></i>
-                                    </button>
-                                    <button aria-label="pause" id="pause">
-                                        <i class="fas fa-pause fa-xs" aria-hidden="true"></i>
-                                    </button>
-                                    <button class="productivity" aria-label="stop" id="stop">
-                                        <i class="fas fa-stop fa-xs" aria-hidden="true"></i>
-                                    </button>
-                                </div>
+                    <div class="timer">
+                        <div id="hand"></div>
+                        <div class="controls">
+                            <label class="switch" for="status-toggle">
+                                <input checked type="checkbox" name="status-toggle" id="status-toggle"
+                                    class="productivity" />
+                                <span class="slider"></span>
+                            </label>
+                            <div class="status">Status: <span id="status">Working</span></div>
+                            <div class="time">
+                                <div id="minutes">25</div>
+                                <div id="seconds">00</div>
                             </div>
-                        </div>
-                        <div class="inputs">
-                            <div class="col input-group">
-                                <label for="work-minutes" class="productivity">Minutes of Work</label>
-                                <input type="number" name="work" id="work-minutes" value="25" class="productivity" />
-                            </div>
-                            <div class="col input-group">
-                                <label for="rest-minutes" class="productivity">Minutes of Rest</label>
-                                <input type="number" name="rest" id="rest-minutes" value="5" class="productivity" />
+                            <div class="buttons">
+                                <button aria-label="play" id="play">
+                                    <i class="fas fa-play fa-xs" aria-hidden="true"></i>
+                                </button>
+                                <button aria-label="pause" id="pause">
+                                    <i class="fas fa-pause fa-xs" aria-hidden="true"></i>
+                                </button>
+                                <button class="productivity" aria-label="stop" id="stop">
+                                    <i class="fas fa-stop fa-xs" aria-hidden="true"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
-
+                    <div class="inputs">
+                        <div class="col input-group">
+                            <label for="work-minutes" class="productivity">Minutes of Work</label>
+                            <input type="number" name="work" id="work-minutes" value="25" class="productivity" />
+                        </div>
+                        <div class="col input-group">
+                            <label for="rest-minutes" class="productivity">Minutes of Rest</label>
+                            <input type="number" name="rest" id="rest-minutes" value="5" class="productivity" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!--End container-->
-<script type="text/javascript" src="/js/planner.js"></script>
+    <!--End container-->
+    <script type="text/javascript" src="/js/planner.js"></script>
+    <script type="text/javascript" src="/js/productivity.js"></script>

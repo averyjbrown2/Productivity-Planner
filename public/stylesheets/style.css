@@ -4,7 +4,7 @@ form.login {
 }
 
 .header-color {
-  color: black;
+  color: #22223B;
   text-decoration: none;
   font-family: 'Josefin Sans', sans-serif;
     
@@ -19,7 +19,7 @@ html, body {
 
 .btn .btn-dark .active .dash-btn{
   background-color: #9a8c98;
-  color:black;
+  color:#22223B;
 }
 
 footer
@@ -97,7 +97,7 @@ footer
   display: flex;
   justify-content: center;
   align-items: center;
-  color: black; text-decoration: none;
+  color: #22223B; text-decoration: none;
   font-size: 35px;
   font-family: 'Norican', cursive;
 }
@@ -125,14 +125,14 @@ footer
 
 .navbar-light .navbar-brand {
   font-family: 'Dancing Script', cursive;
-  color: black;
-  border-bottom: 2px solid black;
+  color: #22223B;
+  border-bottom: 2px solid #22223B;
 }
 .navbar-light .navbar-nav .nav-link, p,
 label, button {
   /* font-family: 'Dancing Script', cursive;  */
   font-family: 'Marck Script', cursive;
-  color: black;
+  color: #22223B;
 }
 .col-container{
   margin: 20px;
@@ -167,10 +167,10 @@ height:80px;
   margin: 10px;
  display: flex;
  align-items: center;
- border-color: black;
+ border-color: #22223B;
 }
 .modal-close-btn{
-border-color: black;
+border-color: #22223B;
 }
 .note-textarea, .note-title {
   color: #000000;
@@ -193,12 +193,12 @@ border-color: black;
 }
 
 input.productivity {
-  border: 5px solid black;
+  border: 5px solid #22223B;
   border-top: none;
   border-left: none;
   border-right: none;
   font-size: 1em;
-  color: black;
+  color: #22223B;
   width: 100%;
 }
 
@@ -247,11 +247,11 @@ label.productivity {
 }
 
 input:checked + .slider {
-  background-color: black;
+  background-color: #22223B;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px black;
+  box-shadow: 0 0 1px #22223B;
 }
 
 input:checked + .slider:before {
@@ -262,7 +262,7 @@ input:checked + .slider:before {
   height: 150px;
   width: 150px;
   margin: 0 auto;
-  background-color: black;
+  background-color: #22223B;
   border-radius: 50%;
   position: relative;
   margin-top: 20px;
@@ -294,7 +294,7 @@ input:checked + .slider:before {
   position: absolute;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 10px solid pink;
+  border-top: 10px solid #9a8c98;
   top: -12px;
   left: -2px;
   border-radius: 50%;
@@ -308,7 +308,7 @@ input:checked + .slider:before {
   width: 15px;
   top: -5px;
   border-radius: 50%;
-  background-color: black;
+  background-color: #22223B;
 }
 
 .controls {
@@ -353,7 +353,7 @@ input:checked + .slider:before {
   width: 1.5em;
   border-radius: 50%;
   font-size: 1em;
-  background-color: black;
+  background-color: #22223B;
   border: none;
   color: #fdfdfd;
   cursor: pointer;
