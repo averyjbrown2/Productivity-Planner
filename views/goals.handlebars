@@ -53,16 +53,16 @@
         <div class="col shadow p-3 m-3 rounded">
             <h3 class="m-3">My Goals</h3><br>
             {{#each goals}}
+            {{else}}
+            <h4>Add a Goal to start Tracking!</h4>
             {{#if added}}
             <div class="shadow p-3 m-3 rounded">
                 <p>{{title}}</p>
-                <p><button type="button" class="btn btn-dark edit-btn" id="inProgressBtn">Start</button>
-                    <button type="button" class="btn btn-dark delete-btn" id="deleteGoal">Delete</button>
+                <p><button type="button" class="btn btn-dark prog-btn" data-id="{{this.id}}" id="startBtn">Start</button>
+                    <button type="button" class="btn btn-dark delete-btn" data-id="{{this.id}}">Delete</button>
                 </p>
             </div>
             {{/if}}
-            {{else}}
-            <h4>Add a Goal to start Tracking!</h4>
             {{/each}}
         </div>
         <!--End second column: goals in progress-->
@@ -72,8 +72,8 @@
             {{#if inProgress}}
             <div class="shadow p-3 m-3 rounded">
                 <p>{{title}}</p>
-                <p><button type="button" class="btn btn-dark edit-btn" id="completeBtn">Completed</button>
-                    <button type="button" class="btn btn-dark delete-btn">Delete</button>
+                <p><button type="button" class="btn btn-dark edit-btn" data-id="{{this.id}}" id="completeBtn">Completed</button>
+                    <button type="button" class="btn btn-dark delete-btn" data-id="{{this.id}}">Delete</button>
                 </p>
             {{/if}}
             {{else}}
@@ -88,8 +88,8 @@
             {{#if completed}}
             <div class="shadow p-3 m-3 rounded">
                 <p>{{title}}</p>
-                <p><button type="button" class="btn btn-dark edit-btn" id="inProgressBtn">In Progress</button>
-                    <button type="button" class="btn btn-dark delete-btn">Delete</button>
+                <p><button type="button" class="btn btn-dark prog-btn" data-id="{{this.id}}" id="inProgressBtn">In Progress</button>
+                    <button type="button" class="btn btn-dark delete-btn" data-id="{{this.id}}">Delete</button>
                 </p>
             </div>
             {{/if}}
