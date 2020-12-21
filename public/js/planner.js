@@ -116,12 +116,12 @@ $(document).ready(() => {
   //show the schedules on the page
   function renderSchedule() {
     newScheduleInput.empty();
-    newScheduleTitle.empty()
+    newScheduleTitle.empty();
     console.log("rendering the schedule");
     for (let i = 0; i < schedule.length; i++) {
       if (dateID === schedule[i].date) {
         console.log(schedule[i]);
-        newNoteInput.val(schedule[i].text);
+        newScheduleInput.val(schedule[i].text);
         newScheduleTitle.val(schedule[i].title);
         console.log(schedule);
       }

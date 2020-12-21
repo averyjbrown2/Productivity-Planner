@@ -102,6 +102,7 @@ module.exports = function(app) {
   app.put("/api/schedules", (req, res) => {
     db.Schedule.update(
       {
+        title: req.body.title,
         text: req.body.text
       },
       {

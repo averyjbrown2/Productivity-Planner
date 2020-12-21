@@ -59,7 +59,7 @@ module.exports = function(app) {
     };
     const morningTime = [];
     const afternoonTime = [];
-    for (let i = 7; i < 12; i++) {
+    for (let i = 7; i < 13; i++) {
       const time = i;
       const morn = {
         time: time,
