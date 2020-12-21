@@ -1,82 +1,88 @@
-  <!--Start navbar-->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid dash-nav">
-        <a class="navbar-brand" href="#"><h1>Productivity Planner</h1></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="d-flex">
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/planner">Day Planner</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/dashboard">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/goals">Goals</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/community">Community</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+<!--Start navbar-->
+<div class="background-pic">  
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid dash-nav">
+    <a class="navbar-brand" href="#">
+      <h2>Productivity Planner</h2>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="d-flex">
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/goals">Goals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/community">Community</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </div>
 </nav>
 <!--End navbar-->
 <br><br><br>
 <h2 class="m-4 text-center header-color">Community</h2>
 <!--Begin main container-->
-  <div class="container community-container mx-auto mt-4 header-color list-border">
-    <div class="row mx-2 p-3">
-      <!--Begin feed column-->
-      <div class="col-md-6">
-        <h3>Feed</h3><hr>
-        {{#each posts}}
-        <div class="row shadow p-3 m-3 rounded bg-white">
-          
-          <h4>{{ title }}</h4>
-          <h6>From: {{ author }}</h6>
-          <p class="header-color">{{ text }}</p>
-          {{else}}
-          <h4>No posts yet!</h4>
-          {{/each}}
+<div class="row mx-2 p-3">
+  <!--Begin feed column-->
+  <div class="col">
+    <div class="container community-container mx-auto mt-4 header-color list-border">
+      <h3 class="mt-3">Feed</h3>
+      <hr>
+      
+      {{#each posts}}
+      <div class="container shadow p-3 m-3 rounded">
+      <h4>{{ title }}</h4>
+      <h6>From: {{ author }}</h6>
+      <p class="header-color">{{ text }}</p>
       </div>
+      {{else}}
+      <h4>No posts yet!</h4>
+      {{/each}}
+      
+    </div>
+  </div>
+  <!--End feed column-->
+  <!--Begin blog posts column-->
+  <div class="col">
+  <div class="container community-container mx-auto mt-4 header-color list-border mx-2">
+    <h3 class="mt-3">Blog Posts</h3>
+    <hr>
+    <form class="blog-posts shadow p-3 m-3 rounded">
+      <div class="form-group">
+        <br>
+        <h4>Write a blog post!</h4>
+        <label class="mt-3" for="exampleInputTitle">Title</label>
+        <input type="title" class="form-control" id="postTitle" placeholder="Title">
+        <label class="mt-3" for="exampleInputTitle">Author</label>
+        <input type="text" class="form-control" id="postAuthor" placeholder="Your Name">
+        <label class="mt-3" for="exampleInputBody">Blog content</label>
+        <textarea type="body" class="form-control" id="postText" placeholder="Start your blog post here"
+          rows="3"></textarea>
       </div>
-      </div> <br>
-      <!--End feed column-->
-      <!--Begin blog posts column-->
-      <div class="col-md-6">
-        <h3>Blog Posts</h3> <hr>
-        <form class="blog-posts shadow p-3 m-3 rounded">
-          <div class="form-group">
-            <br>
-            <h4>Write a blog post!</h4>
-            <label class="mt-3" for="exampleInputTitle">Title</label>
-            <input type="title" class="form-control" id="postTitle" placeholder="Title">
-            <label class="mt-3" for="exampleInputTitle">Author</label>
-            <input type="text" class="form-control" id="postAuthor" placeholder="Your Name">
-            <label class="mt-3" for="exampleInputBody">Blog content</label>
-            <textarea type="body" class="form-control" id="postText" placeholder="Start your blog post here" rows="3"></textarea>
-          </div>
-          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Error:</span> <span class="msg"></span>
-          </div>
-          <button type="submit" class="mt-2 btn btn-dark active" id="addPost">Post</button>
-        </form>
-        <br />
+      <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span> <span class="msg"></span>
       </div>
-    <!--End container-->
+      <button type="submit" class="mt-2 btn btn-dark active" id="addPost">Post</button>
+    </form>
+    <br />
+  </div>
+  </div>
+  <!--End container-->
 </div>
 <div class="container-fluid color-class border-top"></div>
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="/js/community.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/community.js"></script>
