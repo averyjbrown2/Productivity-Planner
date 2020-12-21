@@ -54,6 +54,24 @@ module.exports = function(app) {
   });
 
   app.get("/planner/:date", isAuthenticated, (req, res) => {
+    const morningTime = [];
+    const afternoonTime = [];
+    for (let i = 7; i < 12; i++) {
+      const time = i;
+      const morn = {
+        time: time,
+        period: "AM"
+      };
+      morningTime.push(morn);
+    }
+    for (let i = 1; i < 9; i++) {
+      const time = i;
+      const after = {
+        time: time,
+        period: "PM"
+      };
+      afternoonTime.push(after);
+    }
     res.render("planner", { date: req.params.date });
   });
 
