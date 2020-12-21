@@ -166,6 +166,7 @@ height:80px;
   background-color: white;
   margin: 10px;
  display: flex;
+ align-items: center;
  border-color: black;
 }
 .modal-close-btn{
@@ -185,6 +186,7 @@ border-color: black;
   height: calc(90% - 63px);
   padding-top: 15px;
 }
+
 
 .navbar {
   background-color: #9a8c98 !important;
@@ -369,3 +371,27 @@ input:checked + .slider:before {
   display: block;
   clear: both;
 }
+
+.goals-checkboxes {
+  margin-top: .8rem;
+}
+
+.goals-input-textarea {
+ 
+  outline: none;
+  border-top: none;
+  border-left:none;
+  border-right:none;
+  border-color:#9A8C98;
+  
+}
+
+.goals-input-textarea:focus {
+  box-shadow: 0 0 10px #efd9d1; 
+  border-color:#d8ac9c;
+}
+
+.goals-input-textarea::placeholder {
+ color:rgb(187, 187, 187);
+}
+

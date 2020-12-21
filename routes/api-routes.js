@@ -82,7 +82,9 @@ module.exports = function(app) {
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property (req.body)
     db.Note.create({
-      text: req.body.text
+      date: req.body.date,
+      text: req.body.text,
+      UserId: req.user.id
     }).then(dbNote => {
       res.json(dbNote);
     });

@@ -33,8 +33,7 @@ module.exports = function(sequelize, DataTypes) {
   });
   User.associate = function(models) {
     User.hasMany(models.Note);
-    User.hasMany(models.Goal);
-    User.hasMany(models.Post);
+    User.hasMany(models.Objective);
   };
   return User;
 };

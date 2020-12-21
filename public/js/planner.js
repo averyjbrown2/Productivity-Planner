@@ -1,4 +1,3 @@
-
 $(document).ready(() => {
   // Getting a reference to the input field where user adds a new todo
   const newNoteInput = $("#new-note");
@@ -8,7 +7,6 @@ $(document).ready(() => {
   const dateID = window.location.href.substring(
     window.location.href.lastIndexOf("/") + 1
   );
-
 
   //Run these functions when the planner page loads
   getNote();
@@ -51,9 +49,19 @@ $(document).ready(() => {
         if (dateID === note[i].date) {
           const savedNote = note[i];
 
-          console.log("FOUND A MATCH!!: Date - " + savedNote.dateId + " Text - " + savedNote.Id );
+          console.log(
+            "FOUND A MATCH!!: Date - " +
+            savedNote.dateId +
+            " Text - " +
+            savedNote.Id
+          );
           savedNote.text = newNoteInput.val();
-          console.log("Updated Note!: Date - " + savedNote.dateId + " Text - " + savedNote.Id );
+          console.log(
+            "Updated Note!: Date - " +
+            savedNote.dateId +
+            " Text - " +
+            savedNote.Id
+          );
           //runs update note function
           updateNote(savedNote);
         } else {
@@ -83,4 +91,30 @@ $(document).ready(() => {
     console.log(note);
     $.post("/api/notes", note);
   }
+
+  const objectives = [
+    { className: "checkbox1", checked: null, goal: null },
+    { className: "checkbox2", checked: null, goal: null },
+    { className: "checkbox3", checked: null, goal: null },
+    { className: "checkbox4", checked: null, goal: null }
+  ];
+
+  const goals = [
+    { className: "checkbox2", checked: "checked", goal: "Workout Today!" },
+    { className: "checkbox4", checked: "checked", goal: "Finish Project!" }
+  ];
+
+  const newGoals = objectives.map(objectives => {
+    for (let i = 0; i < goals.length; i++) {
+      if (objectives.className === goals[i].className) {
+        return goals[i];
+      }
+    }
+    return objectives;
+  });
+  console.log(newGoals);
 });
+
+module.exports = {
+  newGoals: newGoals
+};
