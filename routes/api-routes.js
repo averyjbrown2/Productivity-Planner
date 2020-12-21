@@ -89,4 +89,44 @@ module.exports = function(app) {
       res.json(dbNote);
     });
   });
+
+  // GET route for getting all of the schedule items
+  app.get("/api/schedules", (req, res) => {
+    // findAll returns all entries for a table when used with no options
+    db.Schedule.findAll({}).then(dbTodo => {
+      res.json(dbTodo);
+    });
+  });
+
+  // Update already existing Schedules
+  app.put("/api/schedules", (req, res) => {
+    db.Schedule.update(
+      {
+        text: req.body.text
+      },
+      {
+        where: {
+          id: req.body.id
+        }
+      }
+    ).then(dbSchedule => {
+      res.json(dbSchedule);
+    });
+  });
+
+  //Add a new schedule to the schedules table
+  app.post("/api/schedules", (req, res) => {
+    console.log(req.body);
+    // create takes an argument of an object describing the item we want to
+    // insert into our table. In this case we just we pass in an object with a text
+    // and complete property (req.body)
+    db.Schedule.create({
+      date: req.body.date,
+      time: req.body.time,
+      text: req.body.text,
+      UserId: req.user.id
+    }).then(dbSchedule => {
+      res.json(dbSchedule);
+    });
+  });
 };
