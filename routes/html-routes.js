@@ -39,8 +39,10 @@ module.exports = function (app) {
       days.push(data);
     }
     try {
-      const goals = await db.Goal.findAll({ where: { UserId: req.user.id } });
-      const posts = await db.Post.findAll({});
+      const goals = await db.Goal.findAll({
+        where: { UserId: req.user.id }
+      });
+      const posts = await db.Post.findAll({ limit: 3 });
       res.render("dashboard", { days, goals, posts });
     } catch (err) {
       res.sendStatus(500);
@@ -53,13 +55,21 @@ module.exports = function (app) {
     });
   });
   //render goals page with goals based on UserId of logged in user
-  app.get("/goals", isAuthenticated, (req, res) => {
-    db.Goal.findAll({
-      where: { UserId: req.user.id }
-    }).then(goals => {
-      console.log(goals);
-      res.render("goals", { goals });
-    });
+  app.get("/goals", isAuthenticated, async (req, res) => {
+    try {
+      const addedGoals = await db.Goal.findAll({
+        where: { UserId: req.user.id, added: true }
+      });
+      const inProgressGoals = await db.Goal.findAll({
+        where: { UserId: req.user.id, inProgress: true }
+      });
+      const completedGoals = await db.Goal.findAll({
+        where: { UserId: req.user.id, completed: true }
+      });
+      res.render("goals", { addedGoals, inProgressGoals, completedGoals });
+    } catch (err) {
+      res.sendStatus(500);
+    }
   });
 
   app.get("/planner/:date", isAuthenticated, (req, res) => {
