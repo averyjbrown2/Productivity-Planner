@@ -144,7 +144,7 @@ $(document).ready(() => {
               " Text - " +
               savedScheduleItem.Id
           );
-          savedNote.text = newNoteInput.val();
+          savedNote.text = newScheduleInput.val();
           console.log(
             "Updated Schedule!: Date - " +
               savedScheduleItem.dateId +

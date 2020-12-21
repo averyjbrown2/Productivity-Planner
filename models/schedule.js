@@ -13,5 +13,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   });
+  Schedule.associate = function(models) {
+    Schedule.belongsTo(models.User);
+  };
   return Schedule;
 };
