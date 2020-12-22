@@ -38,7 +38,7 @@ $(document).ready(() => {
     });
   });
   //change goal to Completed and move column
-  $("#completeBtn").on("click", function() {
+  $(".completeBtn").on("click", function() {
     const completeStatus = {
       added: false,
       inProgress: false,

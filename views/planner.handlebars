@@ -1,153 +1,157 @@
 <div class="background-pic">
-<!-- Navbar -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <h2 id="planner-logo">Productivity <span>Planner</span></h2>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="d-flex">
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/dashboard">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/goals">Goals</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/community">Community</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
-                    </li>
-                </ul>
+    <!--Begin navbar-->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid dash-nav">
+            <div class="nav-controls-container">
+                <div class="nav-controls">
+                    <a class="navbar-brand" href="#">
+                        <h2 id="planner-logo">Productivity <span>Planner</span></h2>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="d-flex">
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/dashboard">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/goals">Goals</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/community">Community</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </nav><br>
+    <h2 class="m-4 text-center">Day Planner</h2>
+    <div class="container">
+        <!-- Column 1 -->
+        <div class="row">
+            <div class="col">
+                <div class="shadow p-3 m-3 rounded bg-white list-border m-2 clearfix schedule-col">
+                    <h3>Schedule</h3>
+                    {{#each timeBlock}}
+                    <div class="schedule-container justify-content-center">
+                        <div class="col mt-3">
+                            <h5>{{formattedTime}}</h5>
+                        </div>
+                        <div class="col">
+                            <textarea class="new-schedule-item ml-2" id="schedule-for-{{time}}" data-date="{{date}}"
+                                data-time="{{time}}"></textarea>
+                        </div>
+                    </div>
+                    {{/each}}
+                    <button type="button" class="btn btn-dark active float-right" id="save-schedule">
+                        Save plans!
+                    </button>
+                </div>
+            </div>
+            <!-- Today's Date -->
+            <div class="col-sm ">
+                <div class="shadow p-3 m-3 bg-white rounded list-border">
+                    <div class="row date-row m-2">
+                        <h3>Today's Date: </h3>
+                        <h3 id="todays-date">{{formattedDate}}</h3>
+
+                    </div>
+                </div>
+                {{!-- Goals --}}
+                <div class="shadow p-3 m-3 bg-white rounded goals-row list-border">
+                    <div class="container">
+                        <div class="row">
+                            <h3>Goals: </h3>
+                            <form class="flex" id="newGoal">
+                                <input type="text" class="form-control goals-input-textarea" id="goalText"
+                                    placeholder="Write a new goal!">
+                                <button type="submit" class="btn btn-dark active goal-btn">Submit</button>
+                            </form>
+                            {{#each goals}}
+                            <div class="container flexCenter">
+
+                                <input class="form-check-input goals-checkboxes" type="checkbox" {{#if complete}}
+                                    checked {{/if}} data-completed={{complete}} data-id={{id}}>
+                                {{text}}
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+
+                {{!-- Quote --}}
+                <div class="shadow p-3 m-3 bg-white rounded list-border quote-row">
+                    <div class="row m-2">
+                        <div class="shadow p-3 rounded  quote-transparent ">
+                            <h3 class="planner-quote">Happiness Inspires Productivity</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="col-sm ">
+                {{!-- Notes --}}
+                <div class="shadow p-3 m-3 bg-white rounded notes-block list-border clearfix">
+                    <div class="row notes-row m-1">
+                        <h3>Notes: </h3>
+                        <textarea class="note-textarea list-border p-2" id="new-note"
+                            placeholder="Note Text"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-dark active float-right" id="note-save-btn">Save</button>
+                </div>
+                {{!-- Timer --}}
+                <div class="shadow p-3 m-3 bg-white rounded list-border">
+                    <div class="row timer-row m-2">
+                        <h3>Productivity Timer: </h3>
+                        <div class="timer">
+                            <div id="hand"></div>
+                            <div class="controls">
+                                <label class="switch" for="status-toggle">
+                                    <input checked type="checkbox" name="status-toggle" id="status-toggle"
+                                        class="productivity" />
+                                    <span class="slider"></span>
+                                </label>
+                                <div class="status">Status: <span id="status">Working</span></div>
+                                <div class="time">
+                                    <div id="minutes">25</div>
+                                    <div id="seconds">00</div>
+                                </div>
+                                <div class="buttons">
+                                    <button aria-label="play" id="play">
+                                        <i class="fas fa-play fa-xs" aria-hidden="true"></i>
+                                    </button>
+                                    <button aria-label="pause" id="pause">
+                                        <i class="fas fa-pause fa-xs" aria-hidden="true"></i>
+                                    </button>
+                                    <button class="productivity" aria-label="stop" id="stop">
+                                        <i class="fas fa-stop fa-xs" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inputs">
+                            <div class="col input-group">
+                                <label for="work-minutes" class="productivity">Minutes of Work</label>
+                                <input type="number" name="work" id="work-minutes" value="25" class="productivity" />
+                            </div>
+                            <div class="col input-group">
+                                <label for="rest-minutes" class="productivity">Minutes of Rest</label>
+                                <input type="number" name="rest" id="rest-minutes" value="5" class="productivity" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</nav><br>
-<h2 class="m-4 text-center">Day Planner</h2>
-<div class="container">
-    <!-- Column 1 -->
-    <div class="row">
-        <div class="col">
-            <div class="shadow p-3 m-3 rounded bg-white list-border m-2 clearfix schedule-col">
-                <h3>Schedule</h3>
-                {{#each timeBlock}}
-                <div class="schedule-container justify-content-center">
-                    <div class="col mt-3">
-                    <h5>{{formattedTime}}</h5>
-                    </div>
-                    <div class="col">
-                    <textarea class="new-schedule-item ml-2" id="schedule-for-{{time}}" data-date="{{date}}"
-                        data-time="{{time}}"></textarea>
-                        </div>
-                </div>
-                {{/each}}
-                <button type="button" class="btn btn-dark active float-right" id="save-schedule">
-                    Save plans!
-                </button>
-            </div>
-        </div>
-        <!-- Today's Date -->
-        <div class="col-sm ">
-            <div class="shadow p-3 m-3 bg-white rounded list-border">
-                <div class="row date-row m-2">
-                    <h3>Today's Date: </h3>
-                    <h3 id="todays-date">{{formattedDate}}</h3>
-
-                </div>
-            </div>
-            {{!-- Goals --}}
-            <div class="shadow p-3 m-3 bg-white rounded goals-row list-border">
-                <div class="container">
-                    <div class="row">
-                        <h3>Goals: </h3>
-                        <form class="flex" id="newGoal">
-                            <input type="text" class="form-control goals-input-textarea" id="goalText"
-                                placeholder="Write a new goal!">
-                            <button type="submit" class="btn btn-dark active goal-btn">Submit</button>
-                        </form>
-                        {{#each goals}}
-                        <div class="container flexCenter">
-
-                            <input class="form-check-input goals-checkboxes" type="checkbox" {{#if complete}} checked
-                                {{/if}} data-completed={{complete}} data-id={{id}}>
-                            {{text}}
-                        </div>
-                        {{/each}}
-                    </div>
-                </div>
-            </div>
-        
-        {{!-- Quote --}}
-            <div class="shadow p-3 m-3 bg-white rounded list-border quote-row">
-                <div class="row m-2">
-                    <div class="shadow p-3 rounded  quote-transparent ">
-                     <h3 class="planner-quote">Happiness Inspires Productivity</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Column 3 -->
-        <div class="col-sm ">
-            {{!-- Notes --}}
-            <div class="shadow p-3 m-3 bg-white rounded notes-block list-border clearfix">
-                <div class="row notes-row m-1">
-                    <h3>Notes: </h3>
-                    <textarea class="note-textarea list-border p-2" id="new-note" placeholder="Note Text"></textarea>
-                </div>
-                <button type ="submit" class="btn btn-dark active float-right" id="note-save-btn">Save</button>
-            </div>
-            {{!-- Timer --}}
-            <div class="shadow p-3 m-3 bg-white rounded list-border">
-                <div class="row timer-row m-2">
-                    <h3>Productivity Timer: </h3>
-                    <div class="timer">
-                        <div id="hand"></div>
-                        <div class="controls">
-                            <label class="switch" for="status-toggle">
-                                <input checked type="checkbox" name="status-toggle" id="status-toggle"
-                                    class="productivity" />
-                                <span class="slider"></span>
-                            </label>
-                            <div class="status">Status: <span id="status">Working</span></div>
-                            <div class="time">
-                                <div id="minutes">25</div>
-                                <div id="seconds">00</div>
-                            </div>
-                            <div class="buttons">
-                                <button aria-label="play" id="play">
-                                    <i class="fas fa-play fa-xs" aria-hidden="true"></i>
-                                </button>
-                                <button aria-label="pause" id="pause">
-                                    <i class="fas fa-pause fa-xs" aria-hidden="true"></i>
-                                </button>
-                                <button class="productivity" aria-label="stop" id="stop">
-                                    <i class="fas fa-stop fa-xs" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="inputs">
-                        <div class="col input-group">
-                            <label for="work-minutes" class="productivity">Minutes of Work</label>
-                            <input type="number" name="work" id="work-minutes" value="25" class="productivity" />
-                        </div>
-                        <div class="col input-group">
-                            <label for="rest-minutes" class="productivity">Minutes of Rest</label>
-                            <input type="number" name="rest" id="rest-minutes" value="5" class="productivity" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 </div>
 <!--End container-->
 <script type="text/javascript" src="/js/planner.js"></script>
