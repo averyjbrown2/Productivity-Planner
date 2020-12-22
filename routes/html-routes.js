@@ -48,19 +48,11 @@ module.exports = function(app) {
       res.sendStatus(500);
     }
   });
-  //render community page with posts from all users and posts from just logged in user
-  app.get("/community", isAuthenticated, async (req, res) => {
-    try {
-      const allPosts = await db.Post.findAll({
-        limit: 10
-      });
-      const userPosts = await db.Post.findAll({
-        where: { UserId: req.user.id }
-      });
-      res.render("community", { allPosts, userPosts });
-    } catch (err) {
-      res.sendStatus(500);
-    }
+  //render community page with posts from all users
+  app.get("/community", isAuthenticated, (req, res) => {
+    db.Post.findAll({ limit: 10 }).then(posts => {
+      res.render("community", { posts });
+    });
   });
   //render goals page with goals based on UserId of logged in user
   app.get("/goals", isAuthenticated, async (req, res) => {
@@ -112,19 +104,19 @@ module.exports = function(app) {
           .toFormat("ha");
         return newBlock;
       });
-      res.render("planner", {
-        date,
-        timeBlock,
-        formattedDate: DateTime.fromISO(req.params.date).toLocaleString(
-          DateTime.DATE_MED_WITH_WEEKDAY
-        )
-      });
       db.Objective.findAll({
         where: {
           date: req.params.date
         }
       }).then(newGoals => {
-        res.render("planner", { date: req.params.date, goals: newGoals });
+        res.render("planner", {
+          date,
+          timeBlock,
+          formattedDate: DateTime.fromISO(req.params.date).toLocaleString(
+            DateTime.DATE_MED_WITH_WEEKDAY
+          ),
+          goals: newGoals
+        });
       });
     });
     app.get("/signup", isAuthenticated, (req, res) => {
