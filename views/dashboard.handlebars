@@ -1,8 +1,10 @@
 <!--Begin navbar-->
-<div class="background-pic">   
+<div class="background-pic">
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
         <div class="container-fluid dash-nav">
-            <a class="navbar-brand" href="#"><h2>Productivity Planner</h2></a>
+            <a class="navbar-brand" href="#">
+                <h2>Productivity Planner</h2>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,17 +30,19 @@
         </div>
     </nav>
     <!--End navbar-->
-    <br><br><br>
-
-    <h1 class="m-4 text-center">Dashboard</h1>
-    <h2 class="text-center m-2">Welcome to your Productivity Planner!</h2> 
-    <h3 class="text-center">"The secret to getting things done is getting started." - Mark Twain</h3>
+    <div class="container text-center" id="titleCont">
+        <br><br>
+        <h1>Dashboard</h1>
+        <h2>Welcome to your Productivity Planner!</h2>
+        <h3>"The secret to getting things done is getting started." - Mark Twain</h3>
+    </div>
     <!--Begin daily calendar boxes-->
-     <div class="container-fluid">
-        <div class="row mx-2 justify-content-center p-3 m-3 rounded weekView clearfix">
+    <div class="container-fluid clearfix">
+        <div class="row mx-2 justify-content-center p-3 m-3 rounded float-left">
             {{#each days}}
-            <a class="col-sm shadow p-3 m-3 rounded weekViewLinks" id="{{day}}" data-id="{{value}}" href="/planner/{{value}}">
-            {{view}}
+            <a class="col-sm shadow p-3 m-1 rounded weekViewLinks" id="{{day}}" data-id="{{value}}"
+                href="/planner/{{value}}">
+                {{view}}
             </a>
             {{/each}}
         </div>
@@ -46,17 +50,17 @@
     <!--End daily calendar boxes-->
 
     <!--Begin lower half of page: today's quick view, goals, community quick view-->
-    <div class="container-fluid mt-4" id="quickView">
+    <div class="container-fluid" id="quickView">
         <div class="row justify-content-center">
             <!--Begin first column: today's quick view-->
-            <div class="col-sm" id="todayQuickView">
+            <div class="col-lg" id="todayQuickView">
                 <div class="card shadow p-3 m-3 rounded list-border">
                     <div class="card-header">
                         Today Quick View
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group flush">
-                             <li class="list-group-item clearfix">Goal 1</li>
+                            <li class="list-group-item clearfix">Goal 1</li>
                         </ul>
                     </div>
                     <div class="card-footer">
@@ -67,12 +71,12 @@
             <!--End first column: today's quick view-->
 
             <!--Begin second column: goals quick view-->
-            <div class="col-sm" id="todayQuickView">
+            <div class="col-lg" id="todayQuickView">
                 <div class="card shadow p-3 m-3 rounded list-border">
                     <div class="card-header">
                         Goals Quick View
                     </div>
-                    
+
                     <div class="card-body">
                         <ul class="list-group list-group flush">
                             {{#each goals}}
@@ -81,13 +85,14 @@
                         </ul>
                     </div>
                     <div class="card-footer clearfix">
-                        <button type="button" class="btn btn-dark active float-right" id="dashGoalsBtn">Check in With Your Goals</button>
+                        <button type="button" class="btn btn-dark active float-right" id="dashGoalsBtn">Check in With
+                            Your Goals</button>
                     </div>
                 </div>
             </div>
             <!--End second column: goals quick view-->
             <!--Begin third/final column: community quick view-->
-            <div class="col-sm" id="todayQuickView">
+            <div class="col-lg" id="todayQuickView">
                 <div class="card shadow p-3 m-3 rounded list-border">
                     <div class="card-header">
                         Community Quick View
@@ -96,12 +101,13 @@
                         <ul class="list-group list-group flush">
                             {{#each posts}}
                             <li class="list-group-item">{{title}}<br>By: {{author}}<br>{{text}}
-                               </li>
+                            </li>
                             {{/each}}
                         </ul>
                     </div>
                     <div class="card-footer clearfix">
-                        <button type="button" class="btn btn-dark active dash-btn float-right" id="dashCommBtn">Check in With Your Community</button>
+                        <button type="button" class="btn btn-dark active dash-btn float-right" id="dashCommBtn">Check in
+                            With Your Community</button>
                     </div>
                 </div>
             </div>
@@ -110,6 +116,6 @@
         <!--End of row-->
     </div>
 </div>
-    <!--End of container-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="/js/dashboard.js"></script>
+<!--End of container-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/js/dashboard.js"></script>

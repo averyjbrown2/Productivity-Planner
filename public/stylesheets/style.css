@@ -31,7 +31,10 @@ footer
 
 #quickView {
   background-color: #f2e9e4; 
-  position: absolute;
+}
+
+body {
+  padding-top: 75px;
 }
 
 .list-border {
@@ -39,6 +42,10 @@ footer
   border-color: #9a8c98;
   border-width: thick;
   background-color: #f2e9e4;
+}
+
+.navbar {
+  height: 75px;
 }
 
 .background-pic {
@@ -168,7 +175,7 @@ border-color: #22223B;
   color: #000000;
   width: 100%;
   outline: none;
-  border: none;
+  border: none; 
   font-family: 'Dancing Script', cursive;
   font-size: 25px;
   font-weight: bold;
@@ -181,6 +188,14 @@ border-color: #22223B;
 
 .navbar {
   background-color: #9a8c98 !important;
+}
+
+#note-save-btn {
+  margin-top: -40px;
+}
+
+#new-note {
+  margin-top: -40px;
 }
 
 input.productivity {
