@@ -51,16 +51,16 @@ $(document).ready(() => {
 
           console.log(
             "FOUND A MATCH!!: Date - " +
-            savedNote.dateId +
-            " Text - " +
-            savedNote.Id
+              savedNote.dateId +
+              " Text - " +
+              savedNote.Id
           );
           savedNote.text = newNoteInput.val();
           console.log(
             "Updated Note!: Date - " +
-            savedNote.dateId +
-            " Text - " +
-            savedNote.Id
+              savedNote.dateId +
+              " Text - " +
+              savedNote.Id
           );
           //runs update note function
           updateNote(savedNote);

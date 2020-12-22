@@ -12,7 +12,7 @@ $("#addPost").on("click", event => {
       .val()
       .trim()
   };
-  $.post("/api/posts", newPost).then(data => {
+  $.post("/api/posts", newPost).then(() => {
     location.reload();
   });
 });
