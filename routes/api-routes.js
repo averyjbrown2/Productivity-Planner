@@ -89,4 +89,25 @@ module.exports = function(app) {
       res.json(dbNote);
     });
   });
+  app.post("/api/goal", (req, res) => {
+    if (req.user) {
+      req.body.UserId = req.user.id;
+      db.Objective.create(req.body).then(results => res.json(results));
+    } else {
+      res.sendStatus(403);
+    }
+  });
+  app.put("/api/goal/:id", (req, res) => {
+    if (req.user) {
+      db.Objective.update(
+        { complete: req.body.state },
+        { where: { UserId: req.user.id, id: req.params.id } }
+      ).then(results => {
+        console.log(results);
+        res.sendStatus(200);
+      });
+    } else {
+      res.sendStatus(403);
+    }
+  });
 };

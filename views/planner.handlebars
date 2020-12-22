@@ -33,7 +33,7 @@
     <!-- Column 1 -->
     <div class="row">
         <div class="col">
-            <div class="shadow p-3 m-3 rounded">
+            <div class="shadow p-3 m-3 rounded bg-white">
                 <h3>Schedule</h3>
                 <div>
                     <div class="schedule-container">
@@ -125,28 +125,46 @@
                 </div>
             </div>
         </div>
-        <!-- Column 2 -->
+        <!-- Today's Date -->
         <div class="col-sm ">
             <div class="shadow p-3 m-3 bg-white rounded">
                 <div class="row date-row">
                     <h3>Today's Date: </h3>
                     <h3 id="todays-date"></h3>
-
                 </div>
             </div>
+            {{!-- Goals --}}
             <div class="shadow p-3 m-3 bg-white rounded">
-                <div class="row goals-row">
-                    <h3>Goals: </h3>
+                <div class="container">
+                    <div class="row goals-row">
+                        <h3>Goals: </h3><br>
+                        <form class="container" id="newGoal">
+                            <input type="text" class="form-control goals-input-textarea" id="goalText"
+                                placeholder="Write a new goal!">
+                            <button type="submit">submit</button>
+                        </form>
+                        {{#each goals}}
+                        <div class="container flexCenter">
+
+                            <input class="form-check-input goals-checkboxes" type="checkbox" {{#if complete}} checked
+                                {{/if}} data-completed={{complete}} data-id={{id}}>
+                            {{text}}
+                        </div>
+                        {{/each}}
+                    </div>
                 </div>
             </div>
+            {{!--Water --}}
             <div class="shadow p-3 m-3 bg-white rounded">
                 <div class="row water-row">
                     <h3>Water: </h3>
                 </div>
             </div>
         </div>
+
         <!-- Column 3 -->
         <div class="col-sm ">
+        {{!-- Notes --}}
             <div class="shadow p-3 m-3 bg-white rounded notes-block">
                 <div class="row notes-row">
                     <h3>Notes: </h3>
@@ -155,6 +173,7 @@
                     <button class="btn" id="note-save-btn">Save</button>
                 </div>
             </div>
+        {{!-- Timer --}}
             <div class="shadow p-3 m-3 bg-white rounded">
                 <div class="row timer-row">
                     <h3>Productivity Timer: </h3>

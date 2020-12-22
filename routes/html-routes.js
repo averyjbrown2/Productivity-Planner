@@ -6,7 +6,7 @@ const db = require("../models");
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
-module.exports = function (app) {
+module.exports = function(app) {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
@@ -73,9 +73,14 @@ module.exports = function (app) {
   });
 
   app.get("/planner/:date", isAuthenticated, (req, res) => {
-    res.render("planner", { date: req.params.date });
+    db.Objective.findAll({
+      where: {
+        date: req.params.date
+      }
+    }).then(newGoals => {
+      res.render("planner", { date: req.params.date, goals: newGoals });
+    });
   });
-
   app.get("/signup", isAuthenticated, (req, res) => {
     res.render("signup");
   });

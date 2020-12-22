@@ -384,5 +384,4 @@ input:checked + .slider:before {
 
 .goals-input-textarea::placeholder {
  color:rgb(187, 187, 187);
-}
-
+};
