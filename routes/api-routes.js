@@ -121,13 +121,17 @@ module.exports = function(app) {
     // create takes an argument of an object describing the item we want to
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property (req.body)
-    const scheduleItems = req.body.data.map(item => ({ ...item, UserId: req.body.id }));
-    db.Schedule.destroy({ where: { UserId: req.user.id, date: req.params.date }}).then(()=> {
+    const scheduleItems = req.body.data.map(item => ({
+      ...item,
+      UserId: req.body.id
+    }));
+    db.Schedule.destroy({
+      where: { UserId: req.user.id, date: req.params.date }
+    }).then(() => {
       db.Schedule.bulkCreate(scheduleItems).then(dbSchedule => {
         res.json(dbSchedule);
       });
     });
-
   });
 
   // GET route for getting all of the goals information
@@ -136,27 +140,26 @@ module.exports = function(app) {
     db.Objective.findAll({}).then(dbGoal => {
       res.json(dbGoal);
     });
-  app.post("/api/goal", (req, res) => {
-    if (req.user) {
-      req.body.UserId = req.user.id;
-      db.Objective.create(req.body).then(results => res.json(results));
-    } else {
-      res.sendStatus(403);
-    }
+    app.post("/api/goal", (req, res) => {
+      if (req.user) {
+        req.body.UserId = req.user.id;
+        db.Objective.create(req.body).then(results => res.json(results));
+      } else {
+        res.sendStatus(403);
+      }
+    });
+    app.put("/api/goal/:id", (req, res) => {
+      if (req.user) {
+        db.Objective.update(
+          { complete: req.body.state },
+          { where: { UserId: req.user.id, id: req.params.id } }
+        ).then(results => {
+          console.log(results);
+          res.sendStatus(200);
+        });
+      } else {
+        res.sendStatus(403);
+      }
+    });
   });
-  app.put("/api/goal/:id", (req, res) => {
-    if (req.user) {
-      db.Objective.update(
-        { complete: req.body.state },
-        { where: { UserId: req.user.id, id: req.params.id } }
-      ).then(results => {
-        console.log(results);
-        res.sendStatus(200);
-      });
-    } else {
-      res.sendStatus(403);
-    }
-  });
-});
-
 };

@@ -101,7 +101,7 @@ module.exports = function(app) {
         const newBlock = { ...item };
         newBlock.formattedTime = DateTime.fromISO(req.params.date)
           .plus({ hours: newBlock.time })
-          .toFormat("ha")
+          .toFormat("ha");
         return newBlock;
       });
       res.render("planner", {
@@ -111,16 +111,16 @@ module.exports = function(app) {
           DateTime.DATE_MED_WITH_WEEKDAY
         )
       });
-    db.Objective.findAll({
-      where: {
-        date: req.params.date
-      }
-    }).then(newGoals => {
-      res.render("planner", { date: req.params.date, goals: newGoals });
+      db.Objective.findAll({
+        where: {
+          date: req.params.date
+        }
+      }).then(newGoals => {
+        res.render("planner", { date: req.params.date, goals: newGoals });
+      });
+    });
+    app.get("/signup", isAuthenticated, (req, res) => {
+      res.render("signup");
     });
   });
-  app.get("/signup", isAuthenticated, (req, res) => {
-    res.render("signup");
-  });
-});
 };
