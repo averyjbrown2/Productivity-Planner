@@ -13,7 +13,17 @@ $("#addPost").on("click", event => {
       .trim()
   };
   $.post("/api/posts", newPost).then(data => {
-    console.log(data);
+    location.reload();
+  });
+});
+
+$(".delete-btn").on("click", function() {
+  const deletePost = $(this).data("id");
+  console.log(deletePost);
+  $.ajax({
+    type: "DELETE",
+    url: "/api/posts/" + deletePost
+  }).then(() => {
     location.reload();
   });
 });
