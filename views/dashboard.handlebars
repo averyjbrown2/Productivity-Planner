@@ -1,6 +1,4 @@
-
-    <!--Begin navbar-->
-
+<!--Begin navbar-->
 <div class="background-pic">   
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
         <div class="container-fluid dash-nav">
@@ -37,7 +35,7 @@
     <h3 class="text-center">"The secret to getting things done is getting started." - Mark Twain</h3>
     <!--Begin daily calendar boxes-->
      <div class="container-fluid">
-        <div class="row mx-2 justify-content-center p-3 m-3 rounded weekView">
+        <div class="row mx-2 justify-content-center p-3 m-3 rounded weekView clearfix">
             {{#each days}}
             <a class="col-sm shadow p-3 m-3 rounded weekViewLinks" id="{{day}}" data-id="{{value}}" href="/planner/{{value}}">
             {{view}}
@@ -58,11 +56,11 @@
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group flush">
-                             <li class="list-group-item">Goal 1</li>
+                             <li class="list-group-item clearfix">Goal 1</li>
                         </ul>
                     </div>
                     <div class="card-footer">
-                        <button type="button" class="btn btn-dark active">Check Today's Schedule</button>
+                        <button type="button" class="btn btn-dark active float-right">Check Today's Schedule</button>
                     </div>
                 </div>
             </div>
@@ -82,8 +80,8 @@
                             {{/each}}
                         </ul>
                     </div>
-                    <div class="card-footer">
-                        <button type="button" class="btn btn-dark active" id="dashGoalsBtn">Check in With Your Goals</button>
+                    <div class="card-footer clearfix">
+                        <button type="button" class="btn btn-dark active float-right" id="dashGoalsBtn">Check in With Your Goals</button>
                     </div>
                 </div>
             </div>
@@ -102,8 +100,8 @@
                             {{/each}}
                         </ul>
                     </div>
-                    <div class="card-footer">
-                        <button type="button" class="btn btn-dark active dash-btn" id="dashCommBtn">Check in With Your Community</button>
+                    <div class="card-footer clearfix">
+                        <button type="button" class="btn btn-dark active dash-btn float-right" id="dashCommBtn">Check in With Your Community</button>
                     </div>
                 </div>
             </div>

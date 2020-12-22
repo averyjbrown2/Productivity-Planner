@@ -37,79 +37,83 @@
     <div class="container">
         <div class="row">
             <!--Begin the add goal input box-->
-            <div class="col-md-12 shadow p-3 m-3 rounded list-border">
+            <div class="col-md-12 shadow p-3 m-3 rounded list-border clearfix">
                 <h3 class="mb-3">Add a Goal:</h3>
                 <input type="title" class="form-control" placeholder="Add goal here" id="goalTitle" placeholder="Title">
-                <button type="button" class="btn btn-dark mt-3 active" id="addGoal">Submit</button>
+                <button type="button" class="btn btn-dark mt-3 active float-right" id="addGoal">Submit</button>
             </div>
         </div>
     </div>
     <!--Begin first column: my goals-->
     <div class="container-fluid">
         <div class="row">
-            <div class="col">
+            <div class="col-lg-4">
                 <div class="container shadow p-3 mt-3 rounded list-border">
                     <h3 class="m-3">My Goals</h3>
                     <hr>
                     {{#if addedGoals}}
                     {{#each addedGoals}}
-                    <div class="shadow p-3 m-3 rounded bg-white list-border">
+                    <div class="shadow p-3 m-3 rounded bg-white list-border clearfix">
                         <h4>{{title}}</h4>
-                        <p><button type="button" class="btn btn-dark prog-btn active" data-id="{{this.id}}"
-                                id="startBtn">Start</button> <button type="button"
-                                class="btn btn-dark delete-btn active" data-id="{{this.id}}">Delete</button>
+                        <p> 
+                            <button type="button" class="btn btn-dark delete-btn active float-right" 
+                                data-id="{{this.id}}">Delete</button>
+                            <button type="button" class="btn btn-dark prog-btn active float-right" data-id="{{this.id}}"
+                                id="startBtn">Start</button>
                         </p>
                     </div>
                     {{/each}}
                     {{else}}
                     <div class="shadow p-3 m-3 rounded bg-white list-border">
-                    <h4>Add a Goal to start Tracking!</h4>
+                        <h4>Add a Goal to start Tracking!</h4>
                     </div>
                     {{/if}}
                 </div>
             </div>
             <!--End second column: goals in progress-->
-            <div class="col">
+            <div class="col-lg-4">
                 <div class="container shadow p-3 mt-3 rounded list-border">
                     <h3 class="m-3">In Progress</h3>
                     <hr>
                     {{#if inProgressGoals}}
                     {{#each inProgressGoals}}
-                    <div class="shadow p-3 m-3 rounded bg-white list-border">
+                    <div class="shadow p-3 m-3 rounded bg-white list-border clearfix">
                         <h4>{{title}}</h4>
-                        <p><button type="button" class="btn btn-dark edit-btn active" data-id="{{this.id}}"
+                        <p>
+                            <button type="button" class="btn btn-dark delete-btn active float-right"
+                                data-id="{{this.id}}">Delete</button>
+                            <button type="button" class="btn btn-dark edit-btn active float-right" data-id="{{this.id}}"
                                 id="completeBtn">Completed</button>
-                            <button type="button" class="btn btn-dark delete-btn active"
-                                data-id="{{this.id}}">Delete</button>
-                        </p>
-                        {{/each}}
-                        {{else}}
-                        <div class="shadow p-3 m-3 rounded bg-white list-border">
-                        <h4>Start a Goal to track progress!</h4>
-                        </div>
-                        {{/if}}
-                    </div>
-                </div>
-            </div>
-            <!--Begin third column: achievements-->
-            <div class="col">
-                <div class="container shadow p-3 mt-3 rounded list-border">
-                    <h3 class="m-3">Achievements</h3>
-                    <hr>
-                    {{#if completedGoals}}
-                    {{#each completedGoals}}
-                    <div class="shadow p-3 m-3 rounded bg-white list-border">
-                        <h4>{{title}}</h4>
-                        <p><button type="button" class="btn btn-dark prog-btn active" data-id="{{this.id}}"
-                                id="inProgressBtn">In Progress</button>
-                            <button type="button" class="btn btn-dark delete-btn active"
-                                data-id="{{this.id}}">Delete</button>
                         </p>
                     </div>
                     {{/each}}
                     {{else}}
                     <div class="shadow p-3 m-3 rounded bg-white list-border">
-                    <h4>Complete a Goal to add Achievements!</h4>
+                        <h4>Start a Goal to track progress!</h4>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+            <!--Begin third column: achievements-->
+            <div class="col-lg-4">
+                <div class="container shadow p-3 mt-3 rounded list-border">
+                    <h3 class="m-3">Achievements</h3>
+                    <hr>
+                    {{#if completedGoals}}
+                    {{#each completedGoals}}
+                    <div class="shadow p-3 m-3 rounded bg-white list-border clearfix">
+                        <h4>{{title}}</h4>
+                        <p>
+                            <button type="button" class="btn btn-dark delete-btn active float-right"
+                                data-id="{{this.id}}">Delete</button>
+                            <button type="button" class="btn btn-dark prog-btn active float-right" data-id="{{this.id}}"
+                                id="inProgressBtn">In Progress</button>
+                        </p>
+                    </div>
+                    {{/each}}
+                    {{else}}
+                    <div class="shadow p-3 m-3 rounded bg-white list-border">
+                        <h4>Complete a Goal to add Achievements!</h4>
                     </div>
                     {{/if}}
                 </div>
