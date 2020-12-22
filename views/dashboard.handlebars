@@ -63,7 +63,11 @@
                     <div class="card-body">
                         <ul class="list-group list-group flush">
                             {{#each goals}}
-                            <li class="list-group-item">{{title}}</li>
+                            <li class="list-group-item clearfix">{{title}}
+                               <span class="float-right"> {{#if completed}}You Completed This Goal!{{/if}}</span>
+                               <span class="float-right"> {{#if inProgress}}In Progress{{/if}}</span>
+                               <span class="float-right"> {{#if added}}Not Started{{/if}}</span>
+                            </li>
                             {{/each}}
                         </ul>
                     </div>
