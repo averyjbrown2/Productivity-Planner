@@ -31,7 +31,10 @@ footer
 
 #quickView {
   background-color: #f2e9e4; 
-  position: absolute;
+}
+
+body {
+  padding-top: 75px;
 }
 
 .list-border {
@@ -39,6 +42,10 @@ footer
   border-color: #9a8c98;
   border-width: thick;
   background-color: #f2e9e4;
+}
+
+.navbar {
+  height: 75px;
 }
 
 .background-pic {
