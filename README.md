@@ -35,12 +35,13 @@ Contributors!
 
 ## Links
 
+Deployed link on Heroku: https://obscure-lake-47661.herokuapp.com/
 
+Link to our code on GitHub: https://github.com/averyjbrown2/Project-2
 
 
 
 
 Image that you click on to go to link
-<a href="https://drive.google.com/file/d/1aFBP2p_bAm4eYNDpt5uB1Nf9WqG_1T4A/preview
-" target="_blank"><img src="./assets/terminal_screenshot.PNG" 
+<a href="https://obscure-lake-47661.herokuapp.com/" target="_blank"><img src="./assets/terminal_screenshot.PNG" 
 alt="Example Runthrough" width="700"/></a>
