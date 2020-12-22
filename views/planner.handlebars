@@ -41,8 +41,8 @@
                 <div>
                     {{#each timeBlock}}
                     <div class="schedule-container">
-                        <p>{{time}}</p>
-                        <textarea class="new-schedule-item" id="schedule-for-{{time}}">messes with alignment</textarea>
+                        <p>{{formattedTime}}</p>
+                        <textarea class="new-schedule-item" id="schedule-for-{{time}}" data-date="{{date}}" data-time="{{time}}"></textarea>
                     </div>
                     {{/each}}
                     <button type="button" class="btn" id="save-schedule">

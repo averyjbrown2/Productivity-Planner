@@ -127,38 +127,39 @@ $(document).ready(() => {
 
   function saveSchedule() {
     console.log("CLICKED!");
+    insertScheduleItem();
     //grab the schedule table
-    $.get("/api/schedules", data => {
-      schedule = data;
-    });
-    if (schedule.length === 0) {
-      insertScheduleItem();
-    } else {
-      for (let i = 0; i < schedule.length; i++) {
-        if (dateID === schedule[i].date) {
-          const savedScheduleItem = schedule[i];
+    // $.get("/api/schedules", data => {
+    //   schedule = data;
+    // });
+    // if (schedule.length === 0) {
+    //   insertScheduleItem();
+    // } else {
+    //   for (let i = 0; i < schedule.length; i++) {
+    //     if (dateID === schedule[i].date) {
+    //       const savedScheduleItem = schedule[i];
 
-          console.log(
-            "FOUND A MATCH!!: Date - " +
-              savedScheduleItem.dateId +
-              " Text - " +
-              savedScheduleItem.Id
-          );
-          savedScheduleItem.text = newScheduleInput.val();
-          console.log(
-            "Updated Schedule!: Date - " +
-              savedScheduleItem.dateId +
-              " Text - " +
-              savedScheduleItem.Id
-          );
-          //runs update schedule function
-          updateSchedule(savedScheduleItem);
-        } else {
-          console.log("NO matching date so inserting schedule item into table");
-          insertScheduleItem();
-        }
-      }
-    }
+    //       console.log(
+    //         "FOUND A MATCH!!: Date - " +
+    //           savedScheduleItem.dateId +
+    //           " Text - " +
+    //           savedScheduleItem.Id
+    //       );
+    //       savedScheduleItem.text = newScheduleInput.val();
+    //       console.log(
+    //         "Updated Schedule!: Date - " +
+    //           savedScheduleItem.dateId +
+    //           " Text - " +
+    //           savedScheduleItem.Id
+    //       );
+    //       //runs update schedule function
+    //       updateSchedule(savedScheduleItem);
+    //     } else {
+    //       console.log("NO matching date so inserting schedule item into table");
+    //       insertScheduleItem();
+    //     }
+    //   }
+    // }
   }
 
   function updateSchedule(schedule) {
@@ -173,13 +174,18 @@ $(document).ready(() => {
 
   function insertScheduleItem() {
     console.log("insert new schedule item");
-    const schedule = {
-      date: dateID,
-      time: 7,
-      text: newScheduleInput.val().trim()
-    };
-    console.log(schedule);
-    $.post("/api/schedules", schedule);
+    const scheduleItems = Array.from(
+      document.querySelectorAll(".new-schedule-item")
+    );
+    const items = scheduleItems.map(item => {
+      return {
+        date: item.dataset.date,
+        time: item.dataset.time,
+        text: item.value
+      };
+    });
+    const data = items.filter(item => item.text);
+    $.post("/api/schedules/" + data[0].date, { data });
   }
 
   const objectives = [

@@ -116,19 +116,18 @@ module.exports = function(app) {
   });
 
   //Add a new schedule to the schedules table
-  app.post("/api/schedules", (req, res) => {
+  app.post("/api/schedules/:date", (req, res) => {
     console.log(req.body);
     // create takes an argument of an object describing the item we want to
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property (req.body)
-    db.Schedule.create({
-      date: req.body.date,
-      time: req.body.time,
-      text: req.body.text,
-      UserId: req.user.id
-    }).then(dbSchedule => {
-      res.json(dbSchedule);
+    const scheduleItems = req.body.data.map(item => ({ ...item, UserId: req.body.id }));
+    db.Schedule.destroy({ where: { UserId: req.user.id, date: req.params.date }}).then(()=> {
+      db.Schedule.bulkCreate(scheduleItems).then(dbSchedule => {
+        res.json(dbSchedule);
+      });
     });
+
   });
 
   // GET route for getting all of the goals information

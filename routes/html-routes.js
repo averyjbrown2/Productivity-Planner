@@ -6,7 +6,7 @@ const db = require("../models");
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
-module.exports = function(app) {
+module.exports = function (app) {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
@@ -37,7 +37,6 @@ module.exports = function(app) {
       days.push(data);
     }
     res.render("dashboard", { days });
-
   });
   //render community page with posts from all users
   app.get("/community", isAuthenticated, (req, res) => {
@@ -59,16 +58,41 @@ module.exports = function(app) {
       date: req.params.date
     };
 
-    const timeBlock = [];
+    const block = [];
 
     for (let i = 7; i < 20; i++) {
       const times = {
-        time: DateTime.fromISO(req.params.date).plus({hours: i}).toFormat("ha")
+        time: i,
+        date: req.params.date,
+        text: null,
+        UserId: req.user.id
       };
-      timeBlock.push(times);
+      block.push(times);
     }
-
-    res.render("planner", { date, timeBlock, formattedDate: DateTime.fromISO(req.params.date).toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY) });
+    db.Schedule.findAll({
+      where: { UserId: req.user.id, date: req.params.date }
+    }).then(items => {
+      const blocks = block.map((item, index) => {
+        if (items[index] && items[index].time === item.time) {
+          return items[index];
+        }
+        return item;
+      });
+      const timeBlock = blocks.map(item => {
+        const newBlock = { ...item };
+        newBlock.formattedTime = DateTime.fromISO(req.params.date)
+          .plus({ hours: newBlock.time })
+          .toFormat("ha")
+        return newBlock;
+      });
+      res.render("planner", {
+        date,
+        timeBlock,
+        formattedDate: DateTime.fromISO(req.params.date).toLocaleString(
+          DateTime.DATE_MED_WITH_WEEKDAY
+        )
+      });
+    });
   });
 
   app.get("/signup", isAuthenticated, (req, res) => {
