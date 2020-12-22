@@ -3,7 +3,7 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
         <div class="container-fluid dash-nav">
             <a class="navbar-brand" href="#">
-                <h2>Productivity Planner</h2>
+                <h2 id="planner-logo">Productivity <span>Planner</span></h2>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,28 +49,11 @@
     </div>
     <!--End daily calendar boxes-->
 
-    <!--Begin lower half of page: today's quick view, goals, community quick view-->
+    <!--Begin lower half of page: goals quick view, picture, community quick view-->
     <div class="container-fluid" id="quickView">
         <div class="row justify-content-center">
-            <!--Begin first column: today's quick view-->
-            <div class="col-lg" id="todayQuickView">
-                <div class="card shadow p-3 m-3 rounded list-border">
-                    <div class="card-header">
-                        Today Quick View
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-group list-group flush">
-                            <li class="list-group-item clearfix">Goal 1</li>
-                        </ul>
-                    </div>
-                    <div class="card-footer">
-                        <button type="button" class="btn btn-dark active float-right">Check Today's Schedule</button>
-                    </div>
-                </div>
-            </div>
-            <!--End first column: today's quick view-->
-
-            <!--Begin second column: goals quick view-->
+            
+            <!--Begin first column: goals quick view-->
             <div class="col-lg" id="todayQuickView">
                 <div class="card shadow p-3 m-3 rounded list-border">
                     <div class="card-header">
@@ -90,7 +73,15 @@
                     </div>
                 </div>
             </div>
-            <!--End second column: goals quick view-->
+            <!--End first column: goals quick view-->
+
+            <!--Begin second column: today's quick view-->
+            <div class="col-lg" id="todayQuickView">
+                <div class="card shadow p-3 m-3 rounded dash-quote list-border">
+                </div>
+            </div>
+            <!--End second column: today's quick view-->
+
             <!--Begin third/final column: community quick view-->
             <div class="col-lg" id="todayQuickView">
                 <div class="card shadow p-3 m-3 rounded list-border">

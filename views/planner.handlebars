@@ -3,7 +3,7 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <h2>Productivity Planner</h2>
+            <h2 id="planner-logo">Productivity <span>Planner</span></h2>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +34,7 @@
     <!-- Column 1 -->
     <div class="row">
         <div class="col">
-            <div class="shadow p-3 m-3 rounded bg-white list-border m-2 clearfix">
+            <div class="shadow p-3 m-3 rounded bg-white list-border m-2 clearfix schedule-col">
                 <h3>Schedule</h3>
                 {{#each timeBlock}}
                 <div class="schedule-container justify-content-center">
@@ -62,14 +62,14 @@
                 </div>
             </div>
             {{!-- Goals --}}
-            <div class="shadow p-3 m-3 bg-white rounded list-border">
+            <div class="shadow p-3 m-3 bg-white rounded goals-row list-border">
                 <div class="container">
-                    <div class="row goals-row">
+                    <div class="row">
                         <h3>Goals: </h3>
-                        <form class="container" id="newGoal">
+                        <form class="flex" id="newGoal">
                             <input type="text" class="form-control goals-input-textarea" id="goalText"
                                 placeholder="Write a new goal!">
-                            <button type="submit" class="btn btn-dark active float-right">Submit</button>
+                            <button type="submit" class="btn btn-dark active goal-btn">Submit</button>
                         </form>
                         {{#each goals}}
                         <div class="container flexCenter">
@@ -82,10 +82,13 @@
                     </div>
                 </div>
             </div>
-            {{!--Water --}}
-            <div class="shadow p-3 m-3 bg-white rounded list-border">
-                <div class="row water-row m-2">
-                    <h3>Water: </h3>
+        
+        {{!-- Quote --}}
+            <div class="shadow p-3 m-3 bg-white rounded list-border quote-row">
+                <div class="row m-2">
+                    <div class="shadow p-3 rounded  quote-transparent ">
+                     <h3 class="planner-quote">Happiness Inspires Productivity</h3>
+                    </div>
                 </div>
             </div>
         </div>
