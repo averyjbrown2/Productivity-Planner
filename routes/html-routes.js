@@ -49,24 +49,15 @@ module.exports = function(app) {
     }
   });
   //render community page with posts from all users
-  app.get("/community", isAuthenticated, (req, res) => {
-    db.Post.findAll({ limit: 10 }).then(posts => {
-      res.render("community", { posts });
-    });
-  });
-  //render goals page with goals based on UserId of logged in user
-  app.get("/goals", isAuthenticated, async (req, res) => {
+  app.get("/community", isAuthenticated, async (req, res) => {
     try {
-      const addedGoals = await db.Goal.findAll({
-        where: { UserId: req.user.id, added: true }
+      const allPosts = await db.Post.findAll({
+        limit: 10
       });
-      const inProgressGoals = await db.Goal.findAll({
-        where: { UserId: req.user.id, inProgress: true }
+      const userPosts = await db.Post.findAll({
+        where: { UserId: req.user.id }
       });
-      const completedGoals = await db.Goal.findAll({
-        where: { UserId: req.user.id, completed: true }
-      });
-      res.render("goals", { addedGoals, inProgressGoals, completedGoals });
+      res.render("community", { allPosts, userPosts });
     } catch (err) {
       res.sendStatus(500);
     }
