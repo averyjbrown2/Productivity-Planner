@@ -2,7 +2,7 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <h1>Productivity Planner</h1>
+            <h2>Productivity Planner</h2>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,9 +11,6 @@
         <div class="d-flex">
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/planner">Day Planner</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/dashboard">Dashboard</a>
                     </li>
@@ -42,7 +39,8 @@
                     {{#each timeBlock}}
                     <div class="schedule-container">
                         <p>{{formattedTime}}</p>
-                        <textarea class="new-schedule-item" id="schedule-for-{{time}}" data-date="{{date}}" data-time="{{time}}"></textarea>
+                        <textarea class="new-schedule-item" id="schedule-for-{{time}}" data-date="{{date}}"
+                            data-time="{{time}}"></textarea>
                     </div>
                     {{/each}}
                     <button type="button" class="btn" id="save-schedule">
@@ -119,3 +117,4 @@
 </div>
 <!--End container-->
 <script type="text/javascript" src="/js/planner.js"></script>
+<script type="text/javascript" src="/js/productivity.js"></script>

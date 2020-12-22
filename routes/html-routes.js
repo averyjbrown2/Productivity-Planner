@@ -25,7 +25,9 @@ module.exports = function (app) {
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/dashboard", isAuthenticated, (req, res) => {
+  //render dashboard with goals, posts, etc...
+  //Anthony did the base of this. Showed how to await pull from all APIs at once and catch error
+  app.get("/dashboard", isAuthenticated, async (req, res) => {
     const dt = DateTime.local();
     const days = [];
     for (let i = 0; i < 7; i++) {
@@ -36,7 +38,15 @@ module.exports = function (app) {
       };
       days.push(data);
     }
-    res.render("dashboard", { days });
+    try {
+      const goals = await db.Goal.findAll({
+        where: { UserId: req.user.id }
+      });
+      const posts = await db.Post.findAll({ limit: 3 });
+      res.render("dashboard", { days, goals, posts });
+    } catch (err) {
+      res.sendStatus(500);
+    }
   });
   //render community page with posts from all users
   app.get("/community", isAuthenticated, (req, res) => {
@@ -45,12 +55,21 @@ module.exports = function (app) {
     });
   });
   //render goals page with goals based on UserId of logged in user
-  app.get("/goals", isAuthenticated, (req, res) => {
-    db.Goal.findAll({
-      where: { UserId: req.user.id }
-    }).then(goals => {
-      res.render("goals", { goals });
-    });
+  app.get("/goals", isAuthenticated, async (req, res) => {
+    try {
+      const addedGoals = await db.Goal.findAll({
+        where: { UserId: req.user.id, added: true }
+      });
+      const inProgressGoals = await db.Goal.findAll({
+        where: { UserId: req.user.id, inProgress: true }
+      });
+      const completedGoals = await db.Goal.findAll({
+        where: { UserId: req.user.id, completed: true }
+      });
+      res.render("goals", { addedGoals, inProgressGoals, completedGoals });
+    } catch (err) {
+      res.sendStatus(500);
+    }
   });
 
   app.get("/planner/:date", isAuthenticated, (req, res) => {

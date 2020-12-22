@@ -1,7 +1,6 @@
 $(document).ready(() => {
   //Add goal on click
-  $("#addGoal").on("click", event => {
-    event.preventDefault();
+  $("#addGoal").on("click", () => {
     const newGoal = {
       title: $("#goalTitle")
         .val()
