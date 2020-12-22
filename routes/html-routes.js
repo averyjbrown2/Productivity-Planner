@@ -63,6 +63,24 @@ module.exports = function(app) {
     }
   });
 
+  //render goals page with goals based on UserId of logged in user
+  app.get("/goals", isAuthenticated, async (req, res) => {
+    try {
+      const addedGoals = await db.Goal.findAll({
+        where: { UserId: req.user.id, added: true }
+      });
+      const inProgressGoals = await db.Goal.findAll({
+        where: { UserId: req.user.id, inProgress: true }
+      });
+      const completedGoals = await db.Goal.findAll({
+        where: { UserId: req.user.id, completed: true }
+      });
+      res.render("goals", { addedGoals, inProgressGoals, completedGoals });
+    } catch (err) {
+      res.sendStatus(500);
+    }
+  });
+
   app.get("/planner/:date", isAuthenticated, (req, res) => {
     const date = {
       date: req.params.date
