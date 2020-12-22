@@ -117,9 +117,10 @@ $(document).ready(() => {
     newScheduleInput.empty();
     console.log("rendering the schedule");
     for (let i = 0; i < schedule.length; i++) {
+      console.log(schedule);
       if (dateID === schedule[i].date) {
         console.log(schedule[i]);
-        newScheduleInput.val(schedule[i].text);
+        $("#schedule-for-" + schedule[i].time).val(schedule[i].text);
         console.log(schedule);
       }
     }
