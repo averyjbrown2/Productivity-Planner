@@ -22,6 +22,27 @@ I want to be able to set goals and track them via a calendar, so that I can keep
 
 
 ## Screenshots
+Below are screenshots of our deployed application. Click on any of them to be redirected to the application deployed on Heroku.
+
+Login Page  
+<a href="https://obscure-lake-47661.herokuapp.com/" target="_blank"><img src="./public/images/login-form.png" 
+alt="Login Page" width="900"/></a>
+
+Dashboard Page  
+<a href="https://obscure-lake-47661.herokuapp.com/" target="_blank"><img src="./public/images/dashboard.png" 
+alt="Dashboard Page" width="900"/></a>
+
+Day Planner Page  
+<a href="https://obscure-lake-47661.herokuapp.com/" target="_blank"><img src="./public/images/day-planner.png" 
+alt="Day Planner Page" width="900"/></a>
+
+Weekly Goals Page  
+<a href="https://obscure-lake-47661.herokuapp.com/" target="_blank"><img src="./public/images/weekly-goals.png" 
+alt="Weekly Goals Page" width="900"/></a>
+
+Community Page  
+<a href="https://obscure-lake-47661.herokuapp.com/" target="_blank"><img src="./public/images/community-page.png" 
+alt="Community Page" width="900"/></a>
 
 
 ## Credits
@@ -41,7 +62,3 @@ Link to our code on GitHub: https://github.com/averyjbrown2/Project-2
 
 
 
-
-Image that you click on to go to link
-<a href="https://obscure-lake-47661.herokuapp.com/" target="_blank"><img src="./assets/terminal_screenshot.PNG" 
-alt="Example Runthrough" width="700"/></a>
