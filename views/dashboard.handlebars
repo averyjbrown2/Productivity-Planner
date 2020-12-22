@@ -39,7 +39,7 @@
      <div class="container-fluid">
         <div class="row mx-2 justify-content-center p-3 m-3 rounded weekView">
             {{#each days}}
-            <a class="col-sm shadow p-3 m-3 rounded weekViewLinks" data-id="{{value}}" href="/planner/{{value}}">
+            <a class="col-sm shadow p-3 m-3 rounded weekViewLinks" id="{{day}}" data-id="{{value}}" href="/planner/{{value}}">
             {{view}}
             </a>
             {{/each}}

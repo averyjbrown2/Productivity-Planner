@@ -89,25 +89,77 @@ module.exports = function(app) {
       res.json(dbNote);
     });
   });
-  app.post("/api/goal", (req, res) => {
-    if (req.user) {
-      req.body.UserId = req.user.id;
-      db.Objective.create(req.body).then(results => res.json(results));
-    } else {
-      res.sendStatus(403);
-    }
+
+  // GET route for getting all of the schedule items
+  app.get("/api/schedules", (req, res) => {
+    // findAll returns all entries for a table when used with no options
+    db.Schedule.findAll({}).then(dbTodo => {
+      res.json(dbTodo);
+    });
   });
-  app.put("/api/goal/:id", (req, res) => {
-    if (req.user) {
-      db.Objective.update(
-        { complete: req.body.state },
-        { where: { UserId: req.user.id, id: req.params.id } }
-      ).then(results => {
-        console.log(results);
-        res.sendStatus(200);
+
+  // Update already existing Schedules
+  app.put("/api/schedules", (req, res) => {
+    db.Schedule.update(
+      {
+        title: req.body.title,
+        text: req.body.text
+      },
+      {
+        where: {
+          id: req.body.id
+        }
+      }
+    ).then(dbSchedule => {
+      res.json(dbSchedule);
+    });
+  });
+
+  //Add a new schedule to the schedules table
+  app.post("/api/schedules/:date", (req, res) => {
+    console.log(req.body);
+    // create takes an argument of an object describing the item we want to
+    // insert into our table. In this case we just we pass in an object with a text
+    // and complete property (req.body)
+    const scheduleItems = req.body.data.map(item => ({
+      ...item,
+      UserId: req.body.id
+    }));
+    db.Schedule.destroy({
+      where: { UserId: req.user.id, date: req.params.date }
+    }).then(() => {
+      db.Schedule.bulkCreate(scheduleItems).then(dbSchedule => {
+        res.json(dbSchedule);
       });
-    } else {
-      res.sendStatus(403);
-    }
+    });
+  });
+
+  // GET route for getting all of the goals information
+  app.get("/api/goal", (req, res) => {
+    // findAll returns all entries for a table when used with no options
+    db.Objective.findAll({}).then(dbGoal => {
+      res.json(dbGoal);
+    });
+    app.post("/api/goal", (req, res) => {
+      if (req.user) {
+        req.body.UserId = req.user.id;
+        db.Objective.create(req.body).then(results => res.json(results));
+      } else {
+        res.sendStatus(403);
+      }
+    });
+    app.put("/api/goal/:id", (req, res) => {
+      if (req.user) {
+        db.Objective.update(
+          { complete: req.body.state },
+          { where: { UserId: req.user.id, id: req.params.id } }
+        ).then(results => {
+          console.log(results);
+          res.sendStatus(200);
+        });
+      } else {
+        res.sendStatus(403);
+      }
+    });
   });
 };

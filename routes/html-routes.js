@@ -73,15 +73,54 @@ module.exports = function(app) {
   });
 
   app.get("/planner/:date", isAuthenticated, (req, res) => {
-    db.Objective.findAll({
-      where: {
-        date: req.params.date
-      }
-    }).then(newGoals => {
-      res.render("planner", { date: req.params.date, goals: newGoals });
+    const date = {
+      date: req.params.date
+    };
+
+    const block = [];
+
+    for (let i = 7; i < 20; i++) {
+      const times = {
+        time: i,
+        date: req.params.date,
+        text: null,
+        UserId: req.user.id
+      };
+      block.push(times);
+    }
+    db.Schedule.findAll({
+      where: { UserId: req.user.id, date: req.params.date }
+    }).then(items => {
+      const blocks = block.map((item, index) => {
+        if (items[index] && items[index].time === item.time) {
+          return items[index];
+        }
+        return item;
+      });
+      const timeBlock = blocks.map(item => {
+        const newBlock = { ...item };
+        newBlock.formattedTime = DateTime.fromISO(req.params.date)
+          .plus({ hours: newBlock.time })
+          .toFormat("ha");
+        return newBlock;
+      });
+      res.render("planner", {
+        date,
+        timeBlock,
+        formattedDate: DateTime.fromISO(req.params.date).toLocaleString(
+          DateTime.DATE_MED_WITH_WEEKDAY
+        )
+      });
+      db.Objective.findAll({
+        where: {
+          date: req.params.date
+        }
+      }).then(newGoals => {
+        res.render("planner", { date: req.params.date, goals: newGoals });
+      });
     });
-  });
-  app.get("/signup", isAuthenticated, (req, res) => {
-    res.render("signup");
+    app.get("/signup", isAuthenticated, (req, res) => {
+      res.render("signup");
+    });
   });
 };

@@ -1,8 +1,13 @@
 $(document).ready(() => {
   // Getting a reference to the input field where user adds a new todo
   const newNoteInput = $("#new-note");
+  // Added reference to the input where a new schedule item is entered
+  const newScheduleInput = $(".new-schedule-item");
 
+  //Run function when user clicks to save new note
   $("#note-save-btn").on("click", saveNote);
+  //Run function when user clicks to save new schedule item
+  $("#save-schedule").on("click", saveSchedule);
 
   const dateID = window.location.href.substring(
     window.location.href.lastIndexOf("/") + 1
@@ -10,6 +15,7 @@ $(document).ready(() => {
 
   //Run these functions when the planner page loads
   getNote();
+  getSchedule();
 
   // This function grabs notes from the database
   function getNote() {
@@ -91,6 +97,98 @@ $(document).ready(() => {
     console.log(note);
     $.post("/api/notes", note);
   }
+
+  //Handle the schedule input on the planner page
+
+  // Grab schedule info from the database
+  function getSchedule() {
+    $.get("/api/schedules", data => {
+      schedule = data;
+      if (schedule.length === 0) {
+        console.log("no saved schedules");
+        return;
+      }
+      renderSchedule();
+    });
+  }
+
+  //show the schedules on the page
+  function renderSchedule() {
+    newScheduleInput.empty();
+    console.log("rendering the schedule");
+    for (let i = 0; i < schedule.length; i++) {
+      if (dateID === schedule[i].date) {
+        console.log(schedule[i]);
+        newScheduleInput.val(schedule[i].text);
+        console.log(schedule);
+      }
+    }
+  }
+
+  function saveSchedule() {
+    console.log("CLICKED!");
+    insertScheduleItem();
+    //grab the schedule table
+    // $.get("/api/schedules", data => {
+    //   schedule = data;
+    // });
+    // if (schedule.length === 0) {
+    //   insertScheduleItem();
+    // } else {
+    //   for (let i = 0; i < schedule.length; i++) {
+    //     if (dateID === schedule[i].date) {
+    //       const savedScheduleItem = schedule[i];
+
+    //       console.log(
+    //         "FOUND A MATCH!!: Date - " +
+    //           savedScheduleItem.dateId +
+    //           " Text - " +
+    //           savedScheduleItem.Id
+    //       );
+    //       savedScheduleItem.text = newScheduleInput.val();
+    //       console.log(
+    //         "Updated Schedule!: Date - " +
+    //           savedScheduleItem.dateId +
+    //           " Text - " +
+    //           savedScheduleItem.Id
+    //       );
+    //       //runs update schedule function
+    //       updateSchedule(savedScheduleItem);
+    //     } else {
+    //       console.log("NO matching date so inserting schedule item into table");
+    //       insertScheduleItem();
+    //     }
+    //   }
+    // }
+  }
+
+  // eslint-disable-next-line no-unused-vars
+  function updateSchedule(schedule) {
+    console.log("updating schedule");
+    //uses put method the take in saved schedule and runs route using saved schedule
+    $.ajax({
+      method: "PUT",
+      url: "/api/schedules",
+      data: schedule
+    }).then(getSchedule);
+  }
+
+  function insertScheduleItem() {
+    console.log("insert new schedule item");
+    const scheduleItems = Array.from(
+      document.querySelectorAll(".new-schedule-item")
+    );
+    const items = scheduleItems.map(item => {
+      return {
+        date: item.dataset.date,
+        time: item.dataset.time,
+        text: item.value
+      };
+    });
+    const data = items.filter(item => item.text);
+    $.post("/api/schedules/" + data[0].date, { data });
+  }
+
   $("#newGoal").on("submit", function(event) {
     event.preventDefault();
     const newGoalText = {
