@@ -188,6 +188,29 @@ $(document).ready(() => {
     $.post("/api/schedules/" + data[0].date, { data });
   }
 
+  $("#newGoal").on("submit", function(event) {
+    event.preventDefault();
+    const newGoalText = {
+      text: $("#goalText")
+        .val()
+        .trim(),
+      date: dateID,
+      complete: false
+    };
+    $.post("/api/goal", newGoalText).then(() => location.reload());
+  });
+  $(".goals-checkboxes").click(function() {
+    const goalId = $(this).attr("data-id");
+    const newState = $(this).attr("data-completed") === "true" ? false : true;
+    $(this).attr("data-completed", newState);
+    const goalState = { state: newState };
+    console.log(goalId, goalState);
+    $.ajax({
+      method: "PUT",
+      url: "/api/goal/" + goalId,
+      data: goalState
+    }).then(results => console.log(results));
+  });
   const objectives = [
     { className: "checkbox1", checked: null, goal: null },
     { className: "checkbox2", checked: null, goal: null },
