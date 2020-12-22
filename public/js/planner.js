@@ -162,6 +162,7 @@ $(document).ready(() => {
     // }
   }
 
+  // eslint-disable-next-line no-unused-vars
   function updateSchedule(schedule) {
     console.log("updating schedule");
     //uses put method the take in saved schedule and runs route using saved schedule

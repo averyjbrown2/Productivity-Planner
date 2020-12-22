@@ -122,4 +122,5 @@ module.exports = function(app) {
   app.get("/signup", isAuthenticated, (req, res) => {
     res.render("signup");
   });
+});
 };

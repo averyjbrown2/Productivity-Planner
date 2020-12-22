@@ -157,4 +157,6 @@ module.exports = function(app) {
       res.sendStatus(403);
     }
   });
+});
+
 };
