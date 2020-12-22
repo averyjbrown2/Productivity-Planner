@@ -57,8 +57,6 @@ body {
       background-position: center;
       background-repeat: no-repeat;
       background-size: 100%;
-      /* font-family: 'Dancing Script', cursive; */
-      /* font-family: 'Marck Script', cursive; */
       font-family: 'Josefin Sans', sans-serif;
     }
 
@@ -138,7 +136,7 @@ label, button {
 }
 
 .schedule-col{
-  height:600px;
+  height:825px;
 }
 .date-row{
 height:80px;
@@ -146,12 +144,40 @@ height:80px;
 .goals-row{
   height:350px;
 }
-.water-row{
-  height:150px;
+
+.quote-row {
+  height:305px;
+  background-image: url("https://media.istockphoto.com/photos/styled-stock-photography-white-office-desk-table-with-blank-notebook-picture-id929898258?k=6&m=929898258&s=612x612&w=0&h=rPpI5vJ_LdDQnTRbh9PCHvXFU5N5-N_VqmyPLftfDTg=");
+  background-position: initial;
+  background-repeat: no-repeat;
 }
+.quote-transparent {
+  background-color: #F2E9E4;
+  height:250px;
+  width: 250px;
+  /* opacity: 0.5; */
+  background: rgba(246, 234, 243, 0.507);
+}
+.planner-quote {
+  font-size:40px;
+}
+#planner-logo {
+  font-weight: bold;
+}
+span{
+color: #F2E9E4;
+}
+
+.dash-quote {
+  background-image: url("https://i.pinimg.com/originals/ee/6c/0b/ee6c0ba89fa7734c4a6a0e5f50c4ccbe.jpg");
+  background-position:center;
+  background-size: 135% 170%;
+}
+
 .notes-row{
   height:400px;
 }
+
 .timer-row{
   height:290px;
 }
@@ -168,6 +194,16 @@ height:80px;
  align-items: center;
  border-color: #22223B;
 }
+.goal-btn {
+  display: flex;
+  flex-direction: row;
+}
+.flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .modal-close-btn{
 border-color: #22223B;
 }
@@ -184,6 +220,9 @@ border-color: #22223B;
   resize: none;
   height: calc(90% - 63px);
   padding-top: 15px;
+}
+.new-schedule-item {
+  height: 45px;
 }
 
 .navbar {
@@ -376,10 +415,6 @@ input:checked + .slider:before {
   content: " ";
   display: block;
   clear: both;
-}
-
-.goals-checkboxes {
-  margin-top: .8rem;
 }
 
 .goals-input-textarea {
