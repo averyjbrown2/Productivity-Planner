@@ -123,7 +123,7 @@ module.exports = function(app) {
     // and complete property (req.body)
     const scheduleItems = req.body.data.map(item => ({
       ...item,
-      UserId: req.body.id
+      UserId: req.user.id
     }));
     db.Schedule.destroy({
       where: { UserId: req.user.id, date: req.params.date }
