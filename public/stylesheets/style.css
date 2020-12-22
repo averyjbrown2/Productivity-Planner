@@ -190,6 +190,14 @@ border-color: #22223B;
   background-color: #9a8c98 !important;
 }
 
+#note-save-btn {
+  margin-top: -40px;
+}
+
+#new-note {
+  margin-top: -40px;
+}
+
 input.productivity {
   border: 5px solid #22223B;
   border-top: none;

@@ -34,16 +34,20 @@
     <!-- Column 1 -->
     <div class="row">
         <div class="col">
-            <div class="shadow p-3 m-3 rounded bg-white list-border m-2">
+            <div class="shadow p-3 m-3 rounded bg-white list-border m-2 clearfix">
                 <h3>Schedule</h3>
                 {{#each timeBlock}}
-                <div class="schedule-container">
-                    <p>{{formattedTime}}</p>
-                    <textarea class="new-schedule-item" id="schedule-for-{{time}}" data-date="{{date}}"
+                <div class="schedule-container justify-content-center">
+                    <div class="col mt-3">
+                    <h5>{{formattedTime}}</h5>
+                    </div>
+                    <div class="col">
+                    <textarea class="new-schedule-item ml-2" id="schedule-for-{{time}}" data-date="{{date}}"
                         data-time="{{time}}"></textarea>
+                        </div>
                 </div>
                 {{/each}}
-                <button type="button" class="btn" id="save-schedule">
+                <button type="button" class="btn btn-dark active float-right" id="save-schedule">
                     Save plans!
                 </button>
             </div>
@@ -61,11 +65,11 @@
             <div class="shadow p-3 m-3 bg-white rounded list-border">
                 <div class="container">
                     <div class="row goals-row">
-                        <h3>Goals: </h3><br>
-                        <form class="container clearfix" id="newGoal">
+                        <h3>Goals: </h3>
+                        <form class="container" id="newGoal">
                             <input type="text" class="form-control goals-input-textarea" id="goalText"
                                 placeholder="Write a new goal!">
-                            <button type="submit" class="float-right">submit</button>
+                            <button type="submit" class="btn btn-dark active float-right">Submit</button>
                         </form>
                         {{#each goals}}
                         <div class="container flexCenter">
@@ -89,13 +93,12 @@
         <!-- Column 3 -->
         <div class="col-sm ">
             {{!-- Notes --}}
-            <div class="shadow p-3 m-3 bg-white rounded notes-block list-border">
-                <div class="row notes-row m-2">
+            <div class="shadow p-3 m-3 bg-white rounded notes-block list-border clearfix">
+                <div class="row notes-row m-1">
                     <h3>Notes: </h3>
-                    <br>
-                    <textarea class="note-textarea" id="new-note" placeholder="Note Text"></textarea>
-                    <button class="btn" id="note-save-btn">Save</button>
+                    <textarea class="note-textarea list-border p-2" id="new-note" placeholder="Note Text"></textarea>
                 </div>
+                <button type ="submit" class="btn btn-dark active float-right" id="note-save-btn">Save</button>
             </div>
             {{!-- Timer --}}
             <div class="shadow p-3 m-3 bg-white rounded list-border">
