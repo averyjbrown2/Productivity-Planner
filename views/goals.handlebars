@@ -2,29 +2,33 @@
     <!--Begin navbar-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid dash-nav">
-            <a class="navbar-brand" href="#">
-                <h2 id="planner-logo">Productivity <span>Planner</span></h2>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="d-flex">
-                <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/dashboard">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/goals">Goals</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/community">Community</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/logout">Logout</a>
-                        </li>
-                    </ul>
+            <div class="nav-controls-container">
+                <div class="nav-controls">
+                    <a class="navbar-brand" href="#">
+                        <h2 id="planner-logo">Productivity <span>Planner</span></h2>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="d-flex">
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/dashboard">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/goals">Goals</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/community">Community</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -58,7 +62,7 @@
                         <p> 
                             <button type="button" class="btn btn-dark delete-btn active float-right" 
                                 data-id="{{this.id}}">Delete</button>
-                            <button type="button" class="btn btn-dark prog-btn active float-right" data-id="{{this.id}}"
+                            <button type="button" class="btn btn-dark prog-btn active startBtn float-right" data-id="{{this.id}}"
                                 id="startBtn">Start</button>
                         </p>
                     </div>
@@ -82,7 +86,7 @@
                         <p>
                             <button type="button" class="btn btn-dark delete-btn active float-right"
                                 data-id="{{this.id}}">Delete</button>
-                            <button type="button" class="btn btn-dark edit-btn active float-right" data-id="{{this.id}}"
+                            <button type="button" class="btn btn-dark edit-btn active float-right completeBtn" data-id="{{this.id}}"
                                 id="completeBtn">Completed</button>
                         </p>
                     </div>

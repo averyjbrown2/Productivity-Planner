@@ -115,7 +115,8 @@ module.exports = function(app) {
       });
       db.Objective.findAll({
         where: {
-          date: req.params.date
+          date: req.params.date,
+          UserId: req.user.id
         }
       }).then(newGoals => {
         res.render("planner", {

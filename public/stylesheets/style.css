@@ -48,6 +48,30 @@ body {
   height: 75px;
 }
 
+.nav-controls-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+    width: 100%;
+}
+
+@media screen and (max-width: 991px) {
+  /* Nav Control Overrides  */
+  .nav-controls-container {
+    flex-direction: column;
+  }
+  .nav-controls {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  
+  .navbar-collapse {
+    padding: 12px;
+  }
+}
+
+
 .background-pic {
     /* background-image: url(https://www.teahub.io/photos/full/209-2094316_office-desk-background-office-desk-background-hd.jpg); */ 
     background-image: url(https://www.executive-baskets.com/wp-content/uploads/2016/03/Fotolia_99922774_Subscription_Monthly_M.jpg);
@@ -165,7 +189,7 @@ height:80px;
   font-weight: bold;
 }
 span{
-color: #F2E9E4;
+color: #22223B;
 }
 
 .dash-quote {

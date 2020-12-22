@@ -1,33 +1,35 @@
-<!--Begin navbar-->
 <div class="background-pic">
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
+    <!--Begin navbar-->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid dash-nav">
-            <a class="navbar-brand" href="#">
-                <h2 id="planner-logo">Productivity <span>Planner</span></h2>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="d-flex">
-                <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/dashboard">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/goals">Goals</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/community">Community</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/logout">Logout</a>
-                        </li>
-                    </ul>
+            <div class="nav-controls-container">
+                <div class="nav-controls">
+                    <a class="navbar-brand" href="#">
+                        <h2 id="planner-logo">Productivity <span>Planner</span></h2>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                 </div>
-            </div>
-        </div>
+                <div class="d-flex">
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/dashboard">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/goals">Goals</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/community">Community</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
     </nav>
     <!--End navbar-->
     <div class="container text-center" id="titleCont">
@@ -38,7 +40,7 @@
     </div>
     <!--Begin daily calendar boxes-->
     <div class="container-fluid clearfix">
-        <div class="row mx-2 justify-content-center p-3 m-3 rounded float-left">
+        <div class="row mx-2 p-3 m-3 rounded float-left">
             {{#each days}}
             <a class="col-sm shadow p-3 m-1 rounded weekViewLinks" id="{{day}}" data-id="{{value}}"
                 href="/planner/{{value}}">
@@ -52,7 +54,7 @@
     <!--Begin lower half of page: goals quick view, picture, community quick view-->
     <div class="container-fluid" id="quickView">
         <div class="row justify-content-center">
-            
+
             <!--Begin first column: goals quick view-->
             <div class="col-lg" id="todayQuickView">
                 <div class="card shadow p-3 m-3 rounded list-border">
